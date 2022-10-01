@@ -1,0 +1,44 @@
+{% block content %}
+
+
+
+<div >
+  <h1>Blessed</h1>
+  <a href="/logout/" >Logout</a>
+</div>
+
+<!-- style="display: inline;
+vertical-align: top;
+font-family: 'Open Sans', sans-serif;
+font-size: 16px;
+line-height: 28px;" -->
+<form method="post" action="">
+  {% csrf_token %} 
+
+  {% for item in users %}
+    <div class="input-group mb-3">
+      
+          
+        
+       
+        <a class="form-control">{{item}} </a>
+       
+          
+     
+      
+      
+      
+
+  {% endfor %}
+  <a class="form-control">{{users}} </a>
+  
+
+  <br></br>
+
+  <input type="text" class="form-input" name="name" placeholder="List Name" />
+  
+  <button type="submit" name="create" value="create" class="btn btn-success">
+    Create New
+  </button>
+</form>
+{% endblock %}
