@@ -11,7 +11,7 @@ class Products(models.Model):
     size=models.CharField(max_length=10)
     checked = models.BooleanField()
     active=  models.BooleanField(default=True)
-    image=models.ImageField(upload_to="images/", null=True)
+    image=models.ImageField(upload_to="", null=True)
     categories= models.CharField(max_length=100) #shoes/clothes
     # categories = ListCharField(
     #     base_field=models.CharField(max_length=20),
