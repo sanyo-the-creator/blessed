@@ -6,13 +6,13 @@ from django_mysql.models import ListCharField
 class Products(models.Model):
     user = models.ForeignKey(
          User, on_delete=models.CASCADE, related_name="products", null=True)
-    name = models.CharField(max_length=100,required = True)
-    description = models.CharField(max_length=1000,required = False)
-    size=models.CharField(max_length=10,required = True)
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=1000)
+    size=models.CharField(max_length=10)
     checked = models.BooleanField()
     active=  models.BooleanField(default=True)
-    image=models.ImageField(upload_to="", null=True,required = True)
-    categories= models.CharField(max_length=100,required = True) #shoes/clothes
+    image=models.ImageField(upload_to="", null=True)
+    categories= models.CharField(max_length=100) #shoes/clothes
     # categories = ListCharField(
     #     base_field=models.CharField(max_length=20),
     #     size=6,
