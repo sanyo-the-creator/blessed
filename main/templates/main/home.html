@@ -1,44 +1,22 @@
-{% block content %}
+{% extends 'main/navbar.html' %} {% load static %} {% block content %}
 
+<head>
+  <link rel="stylesheet" href=" {% static '/css/home.css' %} " />
+</head>
 
-
-<div >
-  <h1>Blessed</h1>
-  <a href="/logout/" >Logout</a>
-</div>
-
-<!-- style="display: inline;
-vertical-align: top;
-font-family: 'Open Sans', sans-serif;
-font-size: 16px;
-line-height: 28px;" -->
 <form method="post" action="">
-  {% csrf_token %} 
+  {% csrf_token %}
 
-  {% for item in users %}
-    <div class="input-group mb-3">
-      
-          
-        
-       
-        <a class="form-control">{{item}} </a>
-       
-          
-     
-      
-      
-      
-
+  <a class="form-control">Users: {{users}} </a>
+  <h2>products:</h2>
+  {% for product in ls %}
+  <div class="product">
+    <img class="image" src="{{product.image.url}}" alt="image" />
+    <p>Name: {{product.name}}</p>
+    <p>Desciption: {{product.description}}</p>
+    <p>Size: {{product.size}}</p>
+    <p>category: {{product.categories}}</p>
+  </div>
   {% endfor %}
-  <a class="form-control">{{users}} </a>
-  
-
-  <br></br>
-
-  <input type="text" class="form-input" name="name" placeholder="List Name" />
-  
-  <button type="submit" name="create" value="create" class="btn btn-success">
-    Create New
-  </button>
 </form>
 {% endblock %}

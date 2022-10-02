@@ -19,3 +19,10 @@ def home(response):
                 
         return render(response, "main/home.html", {"ls":ls,"users":users})
     return render(response, "main/home.html", {"ls":ls,"users":users})
+def userproducts(response):
+           
+    return render(response, "main/userproducts.html", {})
+
+def addProducts(response):
+           
+    return render(response, "main/addProducts.html", {})

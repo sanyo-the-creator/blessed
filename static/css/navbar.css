@@ -1,0 +1,14 @@
+.logo, .logout,.userproducts {
+    display: inline;
+    vertical-align: top;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 28px;
+    text-decoration: none;
+    } 
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
