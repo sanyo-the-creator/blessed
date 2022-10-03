@@ -9,7 +9,7 @@ class Products(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=1000)
     size=models.CharField(max_length=10)
-    checked = models.BooleanField()
+    problems = models.BooleanField(default=False)
     active=  models.BooleanField(default=True)
     image=models.ImageField(upload_to="", null=True)
     categories= models.CharField(max_length=100) #shoes/clothes

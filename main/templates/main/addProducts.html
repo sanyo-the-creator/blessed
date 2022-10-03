@@ -3,8 +3,21 @@
 <form method="post" action="">
   {% csrf_token %}
   <h1>Add products</h1>
-  <input type="text" name="name" placeholder="Product Name" />
-  <input type="text" name="time" placeholder="description" />
+  <input type="text" name="name" placeholder="Product Name" required />
+  <input type="text" name="description" placeholder="description" required />
+  <select name="category">
+    <option name="Shoes" value="Shoes">Shoes</option>
+    <option name="Clothes" value="Clothes">Clothes</option>
+    <option name="Accesories" value="Accesories">Accesories</option>
+  </select>
+
+  <select name="size">
+    <option name="44" value="44">44</option>
+    <option name="45" value="45">45</option>
+    <option name="M" value="M">M</option>
+    <option name="L" value="L">L</option>
+  </select>
+  <input type="file" id="img" name="image" accept="image/*" required />
   <button type="submit" name="create" value="create" class="btn btn-success">
     Create New
   </button>

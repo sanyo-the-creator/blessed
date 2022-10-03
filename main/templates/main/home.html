@@ -10,7 +10,7 @@
   <a class="form-control">Users: {{users}} </a>
 
   <h2>products:</h2>
-  {% for product in ls %}
+  {% for product in ls %} {% if product.active == True %}
   <div class="product">
     <img class="image" src="{{product.image.url}}" alt="image" />
     <p>Name: {{product.name}}</p>
@@ -18,6 +18,6 @@
     <p>Size: {{product.size}}</p>
     <p>category: {{product.categories}}</p>
   </div>
-  {% endfor %}
+  {% endif %} {% endfor %}
 </form>
 {% endblock %}
