@@ -12,11 +12,14 @@
   <h2>products:</h2>
   {% for product in ls %} {% if product.active == True %}
   <div class="product">
-    <img class="image" src="{{product.image.url}}" alt="image" />
-    <p>Name: {{product.name}}</p>
-    <p>Desciption: {{product.description}}</p>
-    <p>Size: {{product.size}}</p>
-    <p>category: {{product.categories}}</p>
+    <a href="/{{product.id}}/">
+      <img class="image" src="{{product.image.url}}" alt="image" />
+      <p>Name: {{product.name}}</p>
+      <p>Desciption: {{product.description}}</p>
+      <p>Size: {{product.size}}</p>
+      <p>category: {{product.categories}}</p>
+      <p>id: {{product.id}}</p>
+    </a>
   </div>
   {% endif %} {% endfor %}
 </form>

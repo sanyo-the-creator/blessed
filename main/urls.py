@@ -6,4 +6,5 @@ urlpatterns = [
     path("home/", views.home, name="home"),
     path("myproducts/", views.userproducts, name="myproducts"),
     path("add/", views.addProducts, name="add"),
+    path("<int:id>/", views.productLook, name="look"),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
