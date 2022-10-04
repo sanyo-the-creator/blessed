@@ -49,6 +49,4 @@ def addProducts(response):
 def productLook(response, id):
     pd =Products.objects.get(id=id)
     
-    return render(response, "main/productLook.html", {"pd":pd})
-    
-    
+    return render(response, "main/productLook.html", {"pd":pd})    

@@ -3,30 +3,16 @@
   <link rel="stylesheet" href=" {% static '/css/navbar.css' %} " />
 </head>
 <div class="navbar">
-  <div class="top-header">
-    <img
-     src="/static/images/header_logo.png" 
-     class="logo-img"
-     >
-     <div class="input-group">
-      <div class="form-outline">
-        <input type="search" id="form1" class="form-control" />
-        <label class="form-label" for="form1">Search</label>
-      </div>
-      <button type="button" class="btn btn-primary">
-        <i class="fas fa-search"></i>
-      </button>
-    </div> 
-     <ul>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-     </ul>
+  <img src="/static/images/header_logo.png" class="logo">
+  <div class="nav">
+      <ul>
+          <li><a href="">About us</a></li>
+          <li><a href="dunks.html">IDk kokot</a></li>
+          <li><a href="yeezy.html">Fantaaaaaziaaaa</a ></li>
+          <li>  <button class="log-out" type="button">Log out</button></li>
+      </ul>
   </div>
-  <div class="bottom-header">
-
-  </div>
+  <img src="/static/images/kosik.png" class="basket">
 </div>
 <br />
 {% block content %} {% endblock %}
