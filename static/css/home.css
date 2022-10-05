@@ -3,9 +3,12 @@ form {
 }
 
 .image {
-    width: 40%;
+    width: 20%;
 }
 
-.product {
-    width: 50%;
+.product-card {
+    height: 20%;
+}
+p {
+    font-size: 60px;
 }
