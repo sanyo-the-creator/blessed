@@ -4,9 +4,7 @@ from django.shortcuts import render
 from .models import Products
 # Create your views here.
 from django.contrib.auth import get_user_model
-# from IPython.display import display
-# from PIL import Image
-# import wget
+from django.core.files.storage import FileSystemStorage
 
 def home(response):
     try:
@@ -36,10 +34,11 @@ def addProducts(response):
             p.description = response.POST.get("description")
             p.categories = response.POST.get("category")
             p.size = response.POST.get("size")
-            img = response.FILES.get("image")
-            # file=wget.download(img,response.POST.get("image"))
             
-            p.image = response.POST.get("image")
+            img = response.FILES["image"]
+            fileSystemStorage=FileSystemStorage()
+            fileSystemStorage.save(img.name,img)
+            p.image = img.name
             p.checked = False
             p.save()
             response.user.products.add(p)
