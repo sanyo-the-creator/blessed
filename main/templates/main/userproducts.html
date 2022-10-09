@@ -5,6 +5,9 @@
 
 {% csrf_token %}
 <h2>My Products</h2>
+<a href="/add/">
+  <button>Add products</button>
+</a>
 {% if user.products.count == 0 %}
 <p>nemas vlastne produkty</p>
 
@@ -16,9 +19,4 @@
   <p>Size: {{product.size}}</p>
   <p>category: {{product.categories}}</p>
 </div>
-{% endfor %} {% endif %}
-
-<a href="/add/">
-  <button>Add products</button>
-</a>
-{% endblock %}
+{% endfor %} {% endif %} {% endblock %}
