@@ -78,19 +78,12 @@ WSGI_APPLICATION = 'blessed.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blesses_db',
-        'PORT':'5000',
-        'USER' : 'Jergus Snahnican',
-        'PASSWORD' : '2ie3-.9L9FwNX5j',
-        
-        'HOST' : 'localhost',
+DATABASES = {  
+    'default': {  
+        'ENGINE': 'django.db.backends.sqlite3',  
+        'NAME': BASE_DIR / 'db.sqlite3',  
     }
-}
-
-
+}    
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -133,11 +126,13 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 STATIC_URL = 'static/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
-MEDIA_URL = 'static/images/'
-if DEBUG:
-    MEDIA_URL = 'images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')  
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')] 
+
+STATIC_URL = '/static/' 
+MEDIA_URL = 'static/images/' 
+if DEBUG: 
+    MEDIA_URL = 'images/' 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images') 
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
