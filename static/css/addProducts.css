@@ -5,5 +5,5 @@
     display: none;
 }
 #shoes {
-    display: block;
+    display: inline-block;
 }

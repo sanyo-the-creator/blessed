@@ -6,21 +6,21 @@ function sizes() {
     var  accesories =  document.getElementById("accesories")
     if (c == "Shoes"){
         console.log("Shoes")
-        shoes.style.display = "block"
+        shoes.style.display = "inline-block"
         clothes.style.display = "none"
         accesories.style.display = "none"
         
     }
     else if (c == "Clothes"){
         console.log("clothes")
-        clothes.style.display = "block"
+        clothes.style.display = "inline-block"
         shoes.style.display = "none"
         accesories.style.display = "none"
         
     }
     else if (c == "Accesories"){
         console.log("accesories")
-        accesories.style.display = "block"
+        accesories.style.display = "inline-block"
         shoes.style.display = "none"
         clothes.style.display = "none"
         

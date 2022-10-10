@@ -14,7 +14,7 @@
     {% load crispy_forms_tags %} 
     <form method="post" class="from-group">
       {% csrf_token %} {{form|crispy}}
-      <p>Don't have an account? Create one <a href="/register">here</a></p>
+      <p class="register">Don't have an account? Create one <a href="/register">here</a></p>
       {% comment %}
       <p>Forgot password? Click <a href="#">here</a></p>
       {% endcomment %}

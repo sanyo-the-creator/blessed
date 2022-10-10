@@ -33,6 +33,7 @@ def addProducts(response):
             p.description = response.POST.get("description")
             p.categories = response.POST.get("category")
             p.size = response.POST.get("size")
+            p.price = response.POST.get("price")
             
             img = response.FILES["image"]
             fileSystemStorage=FileSystemStorage()

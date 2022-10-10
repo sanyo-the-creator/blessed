@@ -3,6 +3,14 @@ from django.contrib.auth.models import User
 from django.db import models
 from django_mysql.models import ListCharField
 # Create your models here.
+class Account(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE, related_name="account")
+    instagram = models.CharField(max_length=100)
+    mobile= models.IntegerField()
+    def _str_(self):
+        return self.user.username
+
+        
 class Products(models.Model):
     user = models.ForeignKey(
          User, on_delete=models.CASCADE, related_name="products", null=True)
@@ -12,6 +20,7 @@ class Products(models.Model):
     problems = models.BooleanField(default=False)
     active=  models.BooleanField(default=True)
     image=models.ImageField(upload_to="", null=True)
+    price=models.FloatField(default=0)
     categories= models.CharField(max_length=100) #shoes/clothes
     # categories = ListCharField(
     #     base_field=models.CharField(max_length=20),
@@ -40,7 +49,7 @@ class Orders(models.Model):
          User, on_delete=models.CASCADE, related_name="orders", null=True)
     name=models.CharField(max_length=100)
     mail=models.CharField(max_length=100)
-    phone=models.IntegerField(max_length=10)
+    phone=models.IntegerField()
     address=models.CharField(max_length=100)
     payment_method=models.CharField(max_length=100)
     products = ListCharField(
@@ -48,7 +57,7 @@ class Orders(models.Model):
          size=6,
          max_length=(500)
      )
-    subtotal=models.IntegerField(max_length=10)
+    subtotal=models.IntegerField()
     date=models.DateField()
 
    

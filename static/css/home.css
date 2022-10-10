@@ -5,4 +5,21 @@
 .product {
     
     width: 50%;
+    display: flex;
+    justify-content: center;
+    
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+.products {
+    
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-gap: 20px;
+    
+    
+    
+    grid-row-gap: 20px;
 }

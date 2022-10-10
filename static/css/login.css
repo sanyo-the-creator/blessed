@@ -1,8 +1,7 @@
 *,
 *:before,
 *:after {
-  margin: 0;
-  padding: 0;
+  
   box-sizing: border-box;
 }
 
@@ -34,3 +33,10 @@ body {
 .bubble--bust {
     z-index: -1;
   transform: scale(1.8);}
+  .from-group .register {
+    color: black;
+  }
+  .from-group .register:hover {
+    color: white;
+    cursor: default;
+  }
