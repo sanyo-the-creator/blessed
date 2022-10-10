@@ -2,11 +2,20 @@
 <head>
   <link rel="stylesheet" href=" {% static '/css/navbar.css' %} " />
 </head>
-<div class="navbar">
-  <a href="/"><h1 class="logo">Blessed</h1></a>
-  
-  <a class="userproducts" href="/myproducts/">My Products</a>
-  <a class="logout" href="/logout/">Logout</a>
+<div class="container">
+  <div class="navbar">
+    <img src="/static/images/header_logo.png" href="scotts.html" class="logo">
+    <nav>
+        <ul>
+            <li><a href="">Jordan</a></li>
+            <li><a href="dunks.html">Dunks</a></li>
+            <li><a href="yeezy.html">Yeezy 350</a ></li>
+            <li><a href="yeezy500.html">Yeezy 500</a></li>
+            <li><a href="balenciaga.html">Balenciaga</a></li>
+            <img src="/static/images/kosik.png" class="menu">
+        </ul>
+    </nav>
+  </div>
 </div>
 <br />
 {% block content %} {% endblock %}

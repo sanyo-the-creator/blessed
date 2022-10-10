@@ -1,8 +1,39 @@
 .image {
-    width: 40%;
-    
+    width: 100%;
+
 }
+
+.redirect {
+    padding-top: 20px;
+    padding-left: 25px;
+    display: inline-block;
+    line-height: 2;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+.see-all {
+    text-decoration: none;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+
 .product {
-    
-    width: 50%;
+    border: 0.5px solid rgb(120, 120, 120);
+    border-radius: 5px;
+}
+
+.description {
+    color: red;
+    text-decoration: none;
+    padding: 15px;
 }
