@@ -60,4 +60,17 @@ nav ul li a:hover{
     height: 35px;
     color: white;
     background-color: black;
+    cursor: pointer;
+}
+
+.second-navbar {
+    width: 100%;
+    height: 6%;
+    background-color: rgb(228, 224, 224);
+    position: relative;
+    display: inline-block;
+}
+
+.second-navbar a {
+    left: 50%;
 }
