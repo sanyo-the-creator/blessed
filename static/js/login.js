@@ -94,7 +94,7 @@ class Bubble {
 }
 
 // creating many bubble instance
-
+let num = 0
 setInterval(function () {
-  requestAnimationFrame(() => new Bubble());
+  requestAnimationFrame(() =>{ if (num < 50){new Bubble(),num=num+1,console.log(num)}});
 }, 1500);

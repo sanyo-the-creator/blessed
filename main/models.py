@@ -1,4 +1,5 @@
 from email.policy import default
+from statistics import quantiles
 from django.contrib.auth.models import User
 from django.db import models
 from django_mysql.models import ListCharField
@@ -32,18 +33,27 @@ class Products(models.Model):
 
     def _str_(self):
         return self.name
+
 class Cart(models.Model):
     user = models.ForeignKey(
          User, on_delete=models.CASCADE, related_name="cart", null=True)
-    subtotal= models.IntegerField()
+    subtotal= models.IntegerField(default=0)
     def _str_(self):
         return self.user
-class CartItem(models.Model):
-    todolist = models.ForeignKey(Cart, on_delete=models.CASCADE)
-    productid = models.IntegerField()
 
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    productid = models.IntegerField()
+    name = models.CharField(max_length=100, default='SOME STRING')
+    size=models.CharField(max_length=10,default=0)
+    image=models.ImageField(upload_to="", null=True)
+    price=models.FloatField(default=0)
+    quantity= models.IntegerField(default=1)
     def _str_(self):
         return self.productid
+
+
 class Orders(models.Model):
     user = models.ForeignKey(
          User, on_delete=models.CASCADE, related_name="orders", null=True)
