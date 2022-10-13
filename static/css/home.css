@@ -1,12 +1,11 @@
 .second-navbar {
     width: 100%;
-    height: 6%;
+    height: 4,5%;
     background-color: rgb(228, 224, 224);
     text-align: center;
 }
 
 .second-navbar ul {
-
 }
 
 .second-navbar ul li {
@@ -22,7 +21,6 @@
 
 .image {
     width: 100%;
-
 }
 
 .redirect {
