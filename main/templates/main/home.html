@@ -12,109 +12,91 @@
     <li><a href="#">Accesories </a></li>
   </ul>
 </div>
-<form method="post" action="">
-  {% csrf_token %}
 
-  <!-- <a class="form-control">Users: {{users}} </a> -->
-  <div class="redirect">
-    <h2>Products</h2>
-    <a href="#" class="see-all">see all</a>
-  </div>
+<div class="body">
+  <form method="post" action="">
+    {% csrf_token %}
 
-  {% for product in ls %} {% if product.active == True %}
-  <div class="products">
-    <div class="product">
-      <a href="/{{product.id}}/"></a>
-        <img class="image" src="{{product.image.url}}" alt="image" />
-        <div class="description">
-          <p>Name: {{product.name}}</p>
-          <!-- <p>Desciption: {{product.description}}</p> -->
-          <p>Size: {{product.size}}</p>
-          <!-- <p>category: {{product.categories}}</p> -->
-          <!-- <p>id: {{product.id}}</p> -->
-          <p>price</p>
-          <p>nejaka hlupost este zaujimavy stat</p>
-        </div>  
+    <!-- <a class="form-control">Users: {{users}} </a> -->
+    <div class="redirect">
+      <h2>Latest products</h2>
+      <button class="see-all"><a href="#">See All</a></button>
     </div>
-    <div class="product">
-      <a href="/{{product.id}}/"></a>
-        <img class="image" src="{{product.image.url}}" alt="image" />
-        <div class="description">
-          <p>Name: {{product.name}}</p>
-          <!-- <p>Desciption: {{product.description}}</p> -->
-          <p>Size: {{product.size}}</p>
-          <!-- <p>category: {{product.categories}}</p> -->
-          <!-- <p>id: {{product.id}}</p> -->
-          <p>price</p>
-          <p>nejaka hlupost este zaujimavy stat</p>
-        </div>  
-    </div>
-    <div class="product">
-      <a href="/{{product.id}}/"></a>
-        <img class="image" src="{{product.image.url}}" alt="image" />
-        <div class="description">
-          <p>Name: {{product.name}}</p>
-          <!-- <p>Desciption: {{product.description}}</p> -->
-          <p>Size: {{product.size}}</p>
-          <!-- <p>category: {{product.categories}}</p> -->
-          <!-- <p>id: {{product.id}}</p> -->
-          <p>price</p>
-          <p>nejaka hlupost este zaujimavy stat</p>
-        </div>  
-    </div>
-    <div class="product">
-      <a href="/{{product.id}}/"></a>
-        <img class="image" src="{{product.image.url}}" alt="image" />
-        <div class="description">
-          <p>Name: {{product.name}}</p>
-          <!-- <p>Desciption: {{product.description}}</p> -->
-          <p>Size: {{product.size}}</p>
-          <!-- <p>category: {{product.categories}}</p> -->
-          <!-- <p>id: {{product.id}}</p> -->
-          <p>price</p>
-          <p>nejaka hlupost este zaujimavy stat</p>
-        </div>  
-    </div>
-    <div class="product">
-      <a href="/{{product.id}}/"></a>
-        <img class="image" src="{{product.image.url}}" alt="image" />
-        <div class="description">
-          <p>Name: {{product.name}}</p>
-          <!-- <p>Desciption: {{product.description}}</p> -->
-          <p>Size: {{product.size}}</p>
-          <!-- <p>category: {{product.categories}}</p> -->
-          <!-- <p>id: {{product.id}}</p> -->
-          <p>price</p>
-          <p>nejaka hlupost este zaujimavy stat</p>
-        </div>  
-    </div>
-    <div class="product">
-      <a href="/{{product.id}}/"></a>
-        <img class="image" src="{{product.image.url}}" alt="image" />
-        <div class="description">
-          <p>Name: {{product.name}}</p>
-          <!-- <p>Desciption: {{product.description}}</p> -->
-          <p>Size: {{product.size}}</p>
-          <!-- <p>category: {{product.categories}}</p> -->
-          <!-- <p>id: {{product.id}}</p> -->
-          <p>price</p>
-          <p>nejaka hlupost este zaujimavy stat</p>
-        </div>  
-    </div>
-    <div class="product">
-      <a href="/{{product.id}}/"></a>
-        <img class="image" src="{{product.image.url}}" alt="image" />
-        <div class="description">
-          <p>Name: {{product.name}}</p>
-          <!-- <p>Desciption: {{product.description}}</p> -->
-          <p>Size: {{product.size}}</p>
-          <!-- <p>category: {{product.categories}}</p> -->
-          <!-- <p>id: {{product.id}}</p> -->
-          <p>price</p>
-          <p>nejaka hlupost este zaujimavy stat</p>
-        </div>  
-    </div>
-  </div>  
-  {% endif %} {% endfor %}
-</form>
+
+    {% for product in ls %} {% if product.active == True %}
+    <div class="products">
+      <div class="product">
+        <a href="/{{product.id}}/"></a>
+          <img class="image" src="{{product.image.url}}" alt="image" />
+          <div class="description">
+            <p>Name: {{product.name}}</p>
+            <p>Size: {{product.size}}</p>
+            <p>category: {{product.categories}}</p>
+            <p>price: 200eur</p>
+          </div>  
+      </div>
+      <div class="product">
+        <a href="/{{product.id}}/"></a>
+          <img class="image" src="{{product.image.url}}" alt="image" />
+          <div class="description">
+            <p>Name: {{product.name}}</p>
+            <p>Size: {{product.size}}</p>
+            <p>category: {{product.categories}}</p>
+            <p>price: 200eur</p>
+          </div>  
+      </div>
+      <div class="product">
+        <a href="/{{product.id}}/"></a>
+          <img class="image" src="{{product.image.url}}" alt="image" />
+          <div class="description">
+            <p>Name: {{product.name}}</p>
+            <p>Size: {{product.size}}</p>
+            <p>category: {{product.categories}}</p>
+            <p>price: 200eur</p>
+          </div>  
+      </div>
+      <div class="product">
+        <a href="/{{product.id}}/"></a>
+          <img class="image" src="{{product.image.url}}" alt="image" />
+          <div class="description">
+            <p>Name: {{product.name}}</p>
+            <p>Size: {{product.size}}</p>
+            <p>category: {{product.categories}}</p>
+            <p>price: 200eur</p>
+          </div>  
+      </div>
+      <div class="product">
+        <a href="/{{product.id}}/"></a>
+          <img class="image" src="{{product.image.url}}" alt="image" />
+          <div class="description">
+            <p>Name: {{product.name}}</p>
+            <p>Size: {{product.size}}</p>
+            <p>category: {{product.categories}}</p>
+            <p>price: 200eur</p>
+          </div>  
+      </div>
+      <div class="product">
+        <a href="/{{product.id}}/"></a>
+          <img class="image" src="{{product.image.url}}" alt="image" />
+          <div class="description">
+            <p>Name: {{product.name}}</p>
+            <p>Size: {{product.size}}</p>
+            <p>category: {{product.categories}}</p>
+            <p>price: 200eur</p>
+          </div>  
+      </div>
+      <div class="product">
+        <a href="/{{product.id}}/"></a>
+          <img class="image" src="{{product.image.url}}" alt="image" />
+          <div class="description">
+            <p>Name: {{product.name}}</p>
+            <p>Size: {{product.size}}</p>
+            <p>category: {{product.categories}}</p>
+            <p>price: 200eur</p>
+          </div>  
+      </div>
+    </div>  
+    {% endif %} {% endfor %}
+  </form>
+</div>  
 {% endblock %}

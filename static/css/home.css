@@ -1,11 +1,12 @@
 .second-navbar {
     width: 100%;
-    height: 4,5%;
+    height: 6%;
     background-color: rgb(228, 224, 224);
     text-align: center;
 }
 
 .second-navbar ul {
+    display: inline-block;
 }
 
 .second-navbar ul li {
@@ -13,47 +14,54 @@
 }
 
 .second-navbar ul li a {
+    position: relative;
+    display: inline-block;
     text-decoration: none;
     color: black;
     font-size: 25px;
-    padding: 25px;
+    padding-left: 45px;
+    padding-top: 5%;
 }
 
-.image {
-    width: 100%;
+.body {
+    padding-left: 1.5%;
+    padding-top: 2%;
 }
 
 .redirect {
-    padding-top: 20px;
-    padding-left: 25px;
     display: inline-block;
-    line-height: 2;
+    position: relative;
 }
 
 h2 {
-    font-size: 50px;
+    font-size: 30px;
 }
 
 .see-all {
-    text-decoration: none;
+    align-items: right;
 }
 
 .products {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 20px;
-    padding-left: 25px;
-    padding-right: 25px;
+    justify-content: left;
+    grid-template-columns: repeat(7, 200px);
+    grid-auto-rows: minmax(200px, 275px);
+    grid-gap: 1%;
 }
 
 
 .product {
-    border: 0.5px solid rgb(120, 120, 120);
-    border-radius: 5px;
+    border: 0.5px solid rgb(227, 227, 227);
+    border-radius: 3px;
 }
 
 .description {
-    color: red;
+    color: aqua;
     text-decoration: none;
-    padding: 15px;
+    padding-left: 15px;
 }
+
+.image {
+    padding-left: 25px;
+    width: 80%;
+}   
