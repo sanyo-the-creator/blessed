@@ -5,22 +5,20 @@
 <div class="container">
   <div class="navbar">
     <img src="/static/images/header_logo.png" href="scotts.html" class="logo">
+    <form id="form" class="search"> 
+      <input class="search-field" type="search" id="query" name="q">
+    </form>
+    <button class="search-button">Search</button>
     <nav>
         <ul>
             <li><a href="">Jordan</a></li>
             <li><a href="dunks.html">Dunks</a></li>
             <li><a href="yeezy.html">Yeezy 350</a ></li>
-            <li><a href="yeezy500.html">Yeezy 500</a></li>
-            <li><a href="balenciaga.html">Balenciaga</a></li>
             <button class="log-out">Log Out</button>
         </ul>
     </nav>
+    <img src="/static/images/kosik.png" alt="">
   </div>
-</div>
-<div class="second-navbar">
-  <a href="#">Shoes</a>
-  <a href="#">Shoes</a>
-  <a href="#">Shoes</a>
 </div>
 <br />
 {% block content %} {% endblock %}
