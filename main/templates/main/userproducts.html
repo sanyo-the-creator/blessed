@@ -3,20 +3,35 @@
   <link rel="stylesheet" href=" {% static '/css/userproducts.css' %} " />
 </head>
 
-{% csrf_token %}
-<h2>My Products</h2>
-<a href="/add/">
-  <button>Add products</button>
-</a>
-{% if user.products.count == 0 %}
-<p>nemas vlastne produkty</p>
+<body>
+  {% csrf_token %}
+  <h2>My Products</h2>
+  {% if user.products.count == 0 %}
+  <p>Je mi ľúto, ale momentálne nemáš žiadne produkty v predaji.</p>
+  <p>Pridaj produkt a my ťa prevedieme procesom predaja!</p>
+  <p>Tu si môžes pozriet produkty v kategórii "wanted".</p>
+  <p>Sú to produkty, ktoré momentálne niekto hľadá na odkúpenie a práve ty mu môžes</p>
+  <p>pomôcť získať svôj vytúžený pár topánok.</p>
+  <a href="/wanted/">
+    <button class="wanted">Wanted</button>
+  </a>
 
-{% else %} {% for product in user.products.all %}
-<div class="product">
-  <img class="image" src="{{product.image.url}}" alt="image" />
-  <p>Name: {{product.name}}</p>
-  <p>Desciption: {{product.description}}</p>
-  <p>Size: {{product.size}}</p>
-  <p>category: {{product.categories}}</p>
-</div>
+  <a href="/add/">
+    <button>Add products</button>
+  </a>
+
+  {% else %} {% for product in user.products.all %}
+  <div class="products">
+    <div class="product">
+      <img class="image" src="{{product.image.url}}" alt="image" />
+      <div class="description">
+        <p>Name: {{product.name}}</p>
+        <p>Desciption: {{product.description}}</p>
+        <p>Size: {{product.size}}</p>
+        <p>Category: {{product.categories}}</p>
+        <p>Price: {{product.price}}$</p>
+      </div>  
+    </div>
+  </div> 
+</body> 
 {% endfor %} {% endif %} {% endblock %}

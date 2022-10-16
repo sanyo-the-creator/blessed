@@ -124,14 +124,14 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 
-STATIC_URL = 'static/static/static/static/'
+STATIC_URL = 'static/static/static/static/static/'
 STATICFILES_DIRS = (
    os.path.join(BASE_DIR, 'static'),
 )
 
-MEDIA_URL = 'static/images/' 
+MEDIA_URL = 'static/static/static/images/' 
 if DEBUG: 
-    MEDIA_URL = 'images/' 
+    MEDIA_URL = 'static/images/' 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images') 
 
 CRISPY_TEMPLATE_PACK="bootstrap4"

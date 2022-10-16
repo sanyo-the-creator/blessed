@@ -1,0 +1,41 @@
+{% extends 'main/navbar.html' %} {% block content %} {% load static %}
+<head>
+    <link rel="stylesheet" href=" {% static '/css/cart.css' %} " />
+</head>
+<body>
+    {% csrf_token %}
+    <div class="cart-info">
+        <h1>Cart</h1>
+        {% if number == 0 %}
+        <h2>Your cart is empty!</h2>
+        <br>
+        <p>Please, add items to your cart before proceeding next steps.</p>
+        <p>Here are some of the best selling products in our shop.</p>
+        <a href="#">   
+            <button class="show-me">Show me</button>
+        </a>
+        <br>
+        <p>or</p>
+        <br>
+        <p>You can also sell your pair of sneakers!!</p>
+        <br>
+        <a href="#">   
+            <button class="sell">Sell</button>
+        </a>
+    </div>    
+    {% else %}
+    
+    {% for cart in user.cart.all %}
+    
+        {% for item in cart.cartitem_set.all %}
+            <img class="image" src="{{item.image.url}}" alt="image" />
+            <p>{{item.productid}}</p>
+            <p>{{item.name}}</p>
+            <p>{{item.size}}</p>
+            <p>{{item.price}}</p>
+            <button type="submit" value="{{item.id}}" name="delete">Remove</button>
+        {% endfor %}
+    {% endfor %}
+    {% endif %}
+</body>
+{% endblock %}

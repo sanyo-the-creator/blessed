@@ -1,19 +1,12 @@
 const root = document.querySelector("#app");
-let { innerHeight, innerWidth } = window;
-console.log(innerHeight, innerWidth);
-if (innerHeight < 300) {
-  innerHeight = 350;
-}
-if (innerWidth < 300) {
-  innerWidth = 750;
-}
+
 
 class Bubble {
   constructor() {
     this.bubbleSpan = undefined;
     this.handleNewBubble();
     this.color = this.randomColor();
-
+    
     this.posY = this.randomNumber(innerHeight - 20, 20);
     this.posX = this.randomNumber(innerWidth - 20, 20);
 
@@ -30,6 +23,7 @@ class Bubble {
   // creates and appends a new bubble in the DOM
   handleNewBubble() {
     this.bubbleSpan = document.createElement("span");
+    
     this.bubbleSpan.classList.add("bubble");
     root.append(this.bubbleSpan);
     this.handlePosition();
@@ -88,18 +82,19 @@ class Bubble {
       () => {
         requestAnimationFrame(() => this.classList.add("bubble--bust"));
       },
-      removingTime === 0 ? removingTime : removingTime
+      removingTime === 0 ? removingTime : removingTime-100
     );
 
     setTimeout(() => {
       requestAnimationFrame(() => this.remove());
       requestAnimationFrame(() => new Bubble());
+      
     }, removingTime);
   }
 }
 
 // creating many bubble instance
-
+let num = 0
 setInterval(function () {
-  requestAnimationFrame(() => new Bubble());
-}, 1000);
+  requestAnimationFrame(() =>{ if (num < 50){new Bubble(),num=num+1,console.log(num)}});
+}, 1500);

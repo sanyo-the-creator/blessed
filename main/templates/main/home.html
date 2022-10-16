@@ -18,85 +18,22 @@
     {% csrf_token %}
 
     <!-- <a class="form-control">Users: {{users}} </a> -->
-    <div class="redirect">
-      <h2>Latest products</h2>
-      <button class="see-all"><a href="#">See All</a></button>
-    </div>
-
+    <h2>Latest products</h2>
     {% for product in ls %} {% if product.active == True %}
     <div class="products">
       <div class="product">
-        <a href="/{{product.id}}/"></a>
-          <img class="image" src="{{product.image.url}}" alt="image" />
-          <div class="description">
-            <p>Name: {{product.name}}</p>
+        <a href="/{{product.id}}/"><img class="image" src="{{product.image.url}}" alt="image" /></a>
+        <div class="description">
+          <a href="/{{product.id}}/">
+            <p>{{product.name}}</p>
             <p>Size: {{product.size}}</p>
             <p>category: {{product.categories}}</p>
-            <p>price: 200eur</p>
-          </div>  
+            <p>price: {{product.price}}</p>
+          </a>
+        </div>
       </div>
-      <div class="product">
-        <a href="/{{product.id}}/"></a>
-          <img class="image" src="{{product.image.url}}" alt="image" />
-          <div class="description">
-            <p>Name: {{product.name}}</p>
-            <p>Size: {{product.size}}</p>
-            <p>category: {{product.categories}}</p>
-            <p>price: 200eur</p>
-          </div>  
-      </div>
-      <div class="product">
-        <a href="/{{product.id}}/"></a>
-          <img class="image" src="{{product.image.url}}" alt="image" />
-          <div class="description">
-            <p>Name: {{product.name}}</p>
-            <p>Size: {{product.size}}</p>
-            <p>category: {{product.categories}}</p>
-            <p>price: 200eur</p>
-          </div>  
-      </div>
-      <div class="product">
-        <a href="/{{product.id}}/"></a>
-          <img class="image" src="{{product.image.url}}" alt="image" />
-          <div class="description">
-            <p>Name: {{product.name}}</p>
-            <p>Size: {{product.size}}</p>
-            <p>category: {{product.categories}}</p>
-            <p>price: 200eur</p>
-          </div>  
-      </div>
-      <div class="product">
-        <a href="/{{product.id}}/"></a>
-          <img class="image" src="{{product.image.url}}" alt="image" />
-          <div class="description">
-            <p>Name: {{product.name}}</p>
-            <p>Size: {{product.size}}</p>
-            <p>category: {{product.categories}}</p>
-            <p>price: 200eur</p>
-          </div>  
-      </div>
-      <div class="product">
-        <a href="/{{product.id}}/"></a>
-          <img class="image" src="{{product.image.url}}" alt="image" />
-          <div class="description">
-            <p>Name: {{product.name}}</p>
-            <p>Size: {{product.size}}</p>
-            <p>category: {{product.categories}}</p>
-            <p>price: 200eur</p>
-          </div>  
-      </div>
-      <div class="product">
-        <a href="/{{product.id}}/"></a>
-          <img class="image" src="{{product.image.url}}" alt="image" />
-          <div class="description">
-            <p>Name: {{product.name}}</p>
-            <p>Size: {{product.size}}</p>
-            <p>category: {{product.categories}}</p>
-            <p>price: 200eur</p>
-          </div>  
-      </div>
-    </div>  
+    </div>
     {% endif %} {% endfor %}
   </form>
-</div>  
+</div>
 {% endblock %}

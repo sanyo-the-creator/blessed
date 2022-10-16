@@ -1,26 +1,26 @@
-<title>{% block title %}Create an Account{% endblock %}{% load static%}</title>
+<title>{% block title %}Create an Account{% endblock %}</title>
 
 {% load crispy_forms_tags %} {% block content %}
 <head>
-  <link rel="stylesheet" href=" {% static '/css/register.css' %} " />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
 </head>
 
-<div class="header">
-  <img src="#" alt="">
-</div>
-
-<div class="register">
-  <form method="POST" class="form-group">
-    {% csrf_token %}
-    <br />
-    <div style="display: flex; justify-content: center">
-      <div style="width: 50%">
-        <p>At least 8 characters, 1 uppercase and 1 number</p>
-        <button type="submit" class="btn btn-success">Register</button>
-      </div>
+<form method="POST" class="form-group">
+  {% csrf_token %}
+  <br />
+  <div style="display: flex; justify-content: center">
+    <div style="width: 50%">
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-success">Register</button>
     </div>
-  </form>
-</div>
+  </div>
+</form>
+
 <script
   src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

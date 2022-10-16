@@ -3,33 +3,41 @@
   <link rel="stylesheet" href=" {% static '/css/addProducts.css' %} " />
 </head>
 
-<form method="post" action="" enctype="multipart/form-data">
-  {% csrf_token %}
+<body>
   <h1>Add products</h1>
-  <input type="text" name="name" placeholder="Product Name" required />
-  <input type="text" name="description" placeholder="description" required />
+  <br>
+  <p>Vyplň formulár a pridaj svôj pár topánok do nášho e-shopu. My ti už len nájdeme kupcu.</p>
+  <form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="inputs">
+      <input class="product=name" type="text" name="name" placeholder="Product Name" required />
+      <input class="description" type="text" name="description" placeholder="Description" required />
 
-  <select name="category" onchange="sizes()" id="category">
-    <option name="Shoes" value="Shoes">Shoes</option>
-    <option name="Clothes" value="Clothes">Clothes</option>
-    <option name="Accesories" value="Accesories">Accesories</option>
-  </select>
+      <select class="sizing" name="category" onchange="sizes()" id="category">
+        <option name="Shoes" value="Shoes">Shoes</option>
+        <option name="Clothes" value="Clothes">Clothes</option>
+        <option name="Accesories" value="Accesories">Accesories</option>
+      </select>
 
-  <select id="shoes" name="size">
-    <option name="44" value="44">44</option>
-    <option name="45" value="45">45</option>
-    
-  </select>
-  <select id="clothes" name="size">
-    
-    <option name="M" value="M">M</option>
-    <option name="L" value="L">L</option>
-  </select>
-  <input type="text" name="size" id="accesories" placeholder="Accesory Size" value="default" />
-  <input type="file" id="image" name="image" accept="image/*" required />
-  <button type="submit" name="create" value="create" class="btn btn-success">
-    Create New
-  </button>
-</form>
+      <select id="shoes" name="size">
+        <option name="44" value="44">44</option>
+        <option name="45" value="45">45</option>
+        
+      </select>
+      <select id="clothes" name="size">
+        
+        <option name="M" value="M">M</option>
+        <option name="L" value="L">L</option>
+      </select>
+      <input type="text" name="size" id="accesories" placeholder="Accesory Size" value="default" />
+
+      <input class="price" type="number" name="price" step="0.01" placeholder="Price"  required />
+      <input class="import-file" type="file" id="image" name="image" accept="image/*" required />
+    </div>
+    <button type="submit" name="create" value="create" class="submit">
+      Create
+    </button>
+  </form>
+</body>
 <script src="{% static '/js/addProducts.js' %}"></script>
 {% endblock %}
