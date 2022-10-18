@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 body {
@@ -12,12 +13,6 @@ body {
     text-align: left;
 }
 
-
-.from-group {
-    position: absolute;
-    left: 40%;
-    top: 35%;
-}
 .bubble {
     z-index: -1;
     position: absolute;
@@ -39,38 +34,81 @@ body {
     transform: scale(1.8);
 }
 
-label {
-    font-size: 25px;
-    font-family: sans-serif;
+*{
+    margin: auto;
+}
+
+.logo {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+
+form {
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1, 1fr;
+    padding-top: 10%;
 }
 
 input {
-    width: 120%;
+    width: 15%;
+    text-align: center;
+    font-size: 16px;
     height: 35px;
-    background-color: white;
-    padding-left: 10px;
-}
-
-.register {
-    padding-top: 15px;
-    font-size: 20px;
-}
-
-a {
-    color: blue ;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #CCC;
+    box-sizing: border-box;
+    font-size: 18px;
+    position: relative;
 }
 
 .log-in {
-    margin-top: 15px;
-    width: 40%;
-    height: 35px;
-    color: white;
     background-color: black;
+    color: white;
+    width: 7%;
+    height: 35px;
+    margin-top: 2%;
     cursor: pointer;
 }
 
 .log-in:hover {
-    background-color: white;
     color: black;
+    background-color: white;
     border: 1px solid black;
+}
+
+.register {
+    background-color: black;
+    color: white;
+    width: 7%;
+    height: 35px;
+    cursor: pointer;
+}
+
+.register:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+}
+
+button {
+    margin-bottom: 5px;
+}
+
+p {
+    margin-bottom: 5px;
+}
+
+.instagram {
+    height: 50px;
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
 }
