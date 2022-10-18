@@ -22,6 +22,8 @@ class Products(models.Model):
     active=  models.BooleanField(default=True)
     image=models.ImageField(upload_to="", null=True)
     price=models.FloatField(default=0)
+    color1=models.CharField(max_length=7,null=True)
+    color2=models.CharField(max_length=7,null=True)
     categories= models.CharField(max_length=100) #shoes/clothes
     # categories = ListCharField(
     #     base_field=models.CharField(max_length=20),
@@ -49,7 +51,7 @@ class CartItem(models.Model):
     size=models.CharField(max_length=10,default=0)
     image=models.ImageField(upload_to="", null=True)
     price=models.FloatField(default=0)
-    quantity= models.IntegerField(default=1)
+    
     def _str_(self):
         return self.productid
 
