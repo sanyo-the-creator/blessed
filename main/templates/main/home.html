@@ -12,29 +12,61 @@
   </ul>
 </div>
 
-<form method="post" action="">
-  {% csrf_token %} {% comment %}
-  <a class="form-control">Users: {{users}} </a> {% endcomment %}
+<body>
+  <form method="post" action="">
+    {% csrf_token %} {% comment %}
+    <a class="form-control">Users: {{users}} </a> {% endcomment %}
 
-  <h2>Products</h2>
-  <div class="container">
-    <div class="products">
-    {% for product in ls %} {% if product.active == True %}
-    <div class="product">
-      <a href="/{{product.id}}/">
-        <img class="image" src="{{product.image.url}}" alt="image"/>
-        <div class="desc">
-          <p>Name: {{product.name}}</p>
-          <!-- <p>Description: {{product.description}}</p> -->
-          <p>Size: {{product.size}}</p>
-          <!-- <p>Category: {{product.categories}}</p> -->
-          <p>Price: {{product.price}}$</p>
-          <!-- <p>id: {{product.id}}</p> -->
-        </div>
-      </a>
+    <h2>Products</h2>
+    <div class="container">
+      <div class="products">
+      {% for product in ls %} {% if product.active == True %}
+      <div class="product">
+        <a href="/{{product.id}}/">
+          <img class="image" src="{{product.image.url}}" alt="image"/>
+          <div class="desc">
+            <p>Name: {{product.name}}</p>
+            <!-- <p>Description: {{product.description}}</p> -->
+            <p>Size: {{product.size}}</p>
+            <!-- <p>Category: {{product.categories}}</p> -->
+            <p>Price: {{product.price}}$</p>
+            <!-- <p>id: {{product.id}}</p> -->
+          </div>
+        </a>
+      </div>
+      {% endif %} {% endfor %}
     </div>
-    {% endif %} {% endfor %}
   </div>
-</div>
-</form>
+
+  <div class="brands">
+    <ul>
+      <a href="">
+        <li>
+          <img src="/static/images/nike-logo.png" class="nike">
+        </li>
+      </a>
+      <a href="">
+        <li>
+          <img src="/static/images/jumpman-logo.png" class="jordan">
+        </li>
+      </a>
+      <a href="">
+        <li>
+          <img src="/static/images/supreme.png" class="supreme">
+        </li>
+      </a>
+      <a href="">
+        <li>
+          <img src="/static/images/off-white.png" class="off-white">
+        </li>
+      </a>
+      <a href="">
+        <li>
+          <img src="/static/images/Yeezy-Logo.png" class="yeezy">
+        </li>
+      </a>
+    </ul>
+  </div>
+  </form>
+</body>
 {% endblock %}
