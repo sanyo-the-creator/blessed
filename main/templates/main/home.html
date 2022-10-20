@@ -16,16 +16,17 @@
   <form method="post" action="">
     {% csrf_token %} {% comment %}
     <a class="form-control">Users: {{users}} </a> {% endcomment %}
-
+  
     <h2>Products</h2>
     <div class="container">
-      <div class="products">
+      <ul class="products">
+     
       {% for product in ls %} {% if product.active == True %}
-      <div class="product">
+      <li class="product">
         <a href="/{{product.id}}/">
-          <img class="image" src="{{product.image.url}}" alt="image"/>
+          <img class="image" src="{{product.image.url}}" alt="image" />
           <div class="desc">
-            <p>Name: {{product.name}}</p>
+            <p>Name: {{ls.product.name}}</p>
             <!-- <p>Description: {{product.description}}</p> -->
             <p>Size: {{product.size}}</p>
             <!-- <p>Category: {{product.categories}}</p> -->
@@ -33,40 +34,18 @@
             <!-- <p>id: {{product.id}}</p> -->
           </div>
         </a>
-      </div>
+      </li>
       {% endif %} {% endfor %}
-    </div>
-  </div>
-
-  <div class="brands">
-    <ul>
-      <a href="">
-        <li>
-          <img src="/static/images/nike-logo.png" class="nike">
-        </li>
-      </a>
-      <a href="">
-        <li>
-          <img src="/static/images/jumpman-logo.png" class="jordan">
-        </li>
-      </a>
-      <a href="">
-        <li>
-          <img src="/static/images/supreme.png" class="supreme">
-        </li>
-      </a>
-      <a href="">
-        <li>
-          <img src="/static/images/off-white.png" class="off-white">
-        </li>
-      </a>
-      <a href="">
-        <li>
-          <img src="/static/images/Yeezy-Logo.png" class="yeezy">
-        </li>
-      </a>
     </ul>
   </div>
   </form>
 </body>
+
+<div class="brands">
+  <a href=""><img src="/static/images/nike-logo.png" class="nike"></a>
+  <a href=""><img src="/static/images/jumpman-logo.png" class="jordan"></a>
+  <a href=""><img src="/static/images/supreme.png" class="supreme"></a>
+  <a href=""><img src="/static/images/off-white.png" class="off-white"></a>
+  <a href=""><img src="/static/images/Yeezy-Logo.png" class="yeezy"></a>
+</div>
 {% endblock %}

@@ -110,3 +110,20 @@ def cart(response):
 
     
     
+def productEdit(response, id):
+    edit=str(id).replace("edit-", "")
+    pd =Products.objects.get(id=int(edit))
+    if response.method =="POST":
+        if response.POST.get("change"):
+            pd.name = response.POST.get("name")
+            pd.description = response.POST.get("description")
+            pd.price = response.POST.get("price")
+            pd.color1 = response.POST.get("color1")
+            pd.color2 = response.POST.get("color2")
+            pd.save()
+
+            
+
+
+
+    return render(response, "main/productEdit.html", {"pd":pd})
