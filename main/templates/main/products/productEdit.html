@@ -1,0 +1,52 @@
+{% extends 'main/navbar.html' %} {% load static %} {% block content %}
+
+<head>
+  <link rel="stylesheet" href=" {% static '/css/productEdit.css' %} " />
+</head>
+
+
+<h1>Edit Product</h1>
+<form method="post" action="" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="changes">
+    <input
+      type="text"
+      name="name"
+      placeholder="Product Name"
+      value="{{pd.name}}"
+      required
+    />
+    <textarea name="description" placeholder="description" required>
+  {{pd.description}}</textarea
+    >
+
+    <input
+      type="number"
+      name="price"
+      step="0.01"
+      placeholder="price"
+      value="{{pd.price}}"
+      required
+    />
+    <div class="colors">
+      <input type="color" name="color1" value="{{pd.color1}}" />
+      <input type="color" name="color2" value="{{pd.color2}}" />
+    </div>
+    <button type="submit" name="change" value="change" class="change">
+      Change
+    </button>
+  </div>
+
+  <div class="product">
+    <a href="/{{product.id}}/">
+      <img class="image" src="{{pd.image.url}}" alt="image" />
+      <div class="description">
+        <p>Name: {{pd.name}}</p>
+        <p>Desciption: {{product.description}}</p>
+        <p>Category: {{product.categories}}</p>
+        <p>Price: {{pd.price}}$</p>
+      </div>
+    </a>
+  </div>
+</form>
+{% endblock %}

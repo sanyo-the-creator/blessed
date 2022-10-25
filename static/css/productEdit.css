@@ -1,0 +1,91 @@
+h1 {
+    font-size: 52px;
+    text-align: center;
+    padding-bottom: 55px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15%;
+    padding-left: 2%;
+    padding-right: 2%;
+    position: relative;
+}
+
+.changes {
+    width: 125%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2%;
+    margin: auto;
+    grid-row-gap: 100px;
+}
+
+.product {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border: 1px solid rgb(228, 228, 228);
+}
+
+img {
+    width: 400px;
+ }
+
+.change {
+    height: 35px;
+    width: 20%;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+}
+
+.change:hover {
+    color: black;
+    background-color: white;
+}
+
+.description {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);        
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    cursor: none;
+}
+
+input, select { 
+    align-self: center;
+    height: 35px;
+}
+
+input, textarea {
+    padding-left: 10px;
+    border: 1px solid black;
+}
+
+textarea {
+    margin: auto;
+    width: 100%;
+    padding-bottom: 20px;
+    resize: none;
+}
+
+.colors {
+    display: flex;
+    margin-left: 25%;
+}
+
+
+.colors input {
+    margin-left: 25px;
+    background-color: transparent;  
+}

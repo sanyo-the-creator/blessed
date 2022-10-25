@@ -17,37 +17,6 @@ h2 {
     height: 70%;
 }
 
-.products {
-    padding-left: 2%;
-    padding-right: 2%;
-    padding-top: 2%;
-    margin: auto;
-    box-sizing: border-box;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(4, 0.5fr);
-    grid-auto-rows: minmax(250px, 325px);
-    grid-gap: 2%;
-}
-
-.product {
-    border-radius: 3px;
-    cursor: pointer;
-    border: 0.5px solid white;
-}
-
-.description {
-    padding-top: 25px;
-    padding-left: 10px;
-    text-align: left;
-    color: black;
-    text-decoration: none;
-}
-
-.image {
-    width: 80%;
-}
-
 .add-products {
     margin-top: 25px;
     width: 15%;
@@ -75,4 +44,35 @@ h2 {
     background-color: rgb(247, 246, 246);
     color: black;
     border: 1px solid black;
+}
+
+img {
+    width: 500px;
+    border: 1px solid aqua;
+}
+
+.products {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.product {
+    border: 1px solid rgb(227, 227, 227);
+    width: 50%;
+    height: 500px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.description {
+    border: 1px solid red;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
 }

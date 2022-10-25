@@ -16,6 +16,7 @@ body {
 
 h1 {
     text-align: center;
+    margin-bottom: 75px;
 }
 
 form {
@@ -26,9 +27,10 @@ form {
 
 .inputs {
     display: grid;
+    width: 100%;
     grid-gap: 2%;
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: minmax(50px, 125px);
+    grid-auto-rows: minmax(50px, 100px);
 }
 
 input, select { 
@@ -36,16 +38,37 @@ input, select {
     height: 35px;
 }
 
-input {
+input, textarea {
     padding-left: 10px;
 }
 
+textarea {
+    margin: auto;
+    width: 100%;
+    padding-bottom: 20px;
+    resize: none;
+}
+
+.colors {
+    display: flex;
+}
+
+p {
+    margin: auto;
+}
+
+.colors input {
+    margin-left: 25px;
+    background-color: transparent;  
+}
+
 .submit {
-    margin-top: 35px;
+    margin-top: 10px;
     height: 35px;
     width: 30%;
     background-color: black;
     color: white;
+    cursor: pointer;
 }
 
 .submit:hover {
@@ -56,6 +79,7 @@ input {
 
 .import-file {
     height: 35px;
+    cursor: pointer;
 }
 
 ::-webkit-file-upload-button {
@@ -63,10 +87,15 @@ input {
     width: 50%;
     color: white;
     background-color: black;
+    cursor: pointer;
 }
 
 ::-webkit-file-upload-button:hover {
     color: black;
     background-color: white;
     border: 1px solid black;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

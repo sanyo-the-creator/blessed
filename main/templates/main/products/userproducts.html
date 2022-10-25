@@ -23,14 +23,16 @@
   {% else %} {% for product in user.products.all %}
   <div class="products">
     <div class="product">
-      <img class="image" src="{{product.image.url}}" alt="image" />
-      <div class="description">
-        <p>Name: {{product.name}}</p>
-        <p>Desciption: {{product.description}}</p>
-        <p>Size: {{product.size}}</p>
-        <p>Category: {{product.categories}}</p>
-        <p>Price: {{product.price}}$</p>
-      </div>  
+      <a href="/{{product.id}}/">
+        <img class="image" src="{{product.image.url}}" alt="image" />
+        <div class="description">
+          <p>Name: {{product.name}}</p>
+          <!-- <p>Desciption: {{product.description}}</p> -->
+          <p>Size: {{product.size}}</p>
+          <p>Category: {{product.categories}}</p>
+          <p>Price: {{product.price}}$</p>
+        </div>
+      </a>
     </div>
   </div> 
 </body> 
