@@ -19,7 +19,7 @@ form {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2%;
     margin: auto;
-    grid-row-gap: 100px;
+    grid-row-gap: 100px ;
 }
 
 .product {

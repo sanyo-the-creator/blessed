@@ -4,14 +4,8 @@
     font-family: "SuisseIntl-Medium",sans-serif;
 }
 
-.basket {
-    height: 35px;
-    padding-left: 30px;
-}
-
 .container {
     margin: auto;
-    height: 100px;
     padding-left: 2%;
     padding-right: 2%;
     box-sizing: border-box;

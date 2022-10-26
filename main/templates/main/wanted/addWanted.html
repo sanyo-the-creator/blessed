@@ -1,0 +1,56 @@
+{% extends 'main/navbar.html' %} {% load static %}{% block content %}
+<head>
+  <link rel="stylesheet" href=" {% static '/css/addProducts.css' %} " />
+</head>
+
+<h1>Add Wanted</h1>
+<form method="post" action="" enctype="multipart/form-data">
+  <div class="inputs">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Product Name" required />
+
+    <select name="category" onchange="sizes()" id="category">
+      <option name="Shoes" value="Shoes">Shoes</option>
+      <option name="Clothes" value="Clothes">Clothes</option>
+      <option name="Accesories" value="Accesories">Accesories</option>
+    </select>
+
+    <select id="shoes" name="sizeS">
+      <option name="44" value="44">44</option>
+      <option name="45" value="45">45</option>
+    </select>
+
+    <select id="clothes" name="sizeC">
+      <option name="M" value="M">M</option>
+      <option name="L" value="L">L</option>
+    </select>
+
+    <input
+      type="text"
+      name="sizeA"
+      id="accesories"
+      maxlength="10"
+      placeholder="Accesory Size"
+    />
+
+    <input
+      type="number"
+      name="price"
+      step="0.01"
+      placeholder="Max Price in €"
+      min="0.01"
+      required
+    />
+    <input type="file" id="image" name="image" accept="image/*" />
+    <div class="colors">
+      <p>Pick colors theme of button and boxes</p>
+      <input type="color" name="color1" value="#FFFFFF" />
+      <input type="color" name="color2" value="#000000" />
+    </div>
+  </div>
+  <button type="submit" name="create" value="create" class="submit">
+    Create New
+  </button>
+</form>
+<script src="{% static '/js/addProducts.js' %}"></script>
+{% endblock %}

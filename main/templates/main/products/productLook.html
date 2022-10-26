@@ -8,9 +8,10 @@
   {% csrf_token %}
   <div class="row">
     <div class="kolonka-1">
-        <h2>{{pd.name}}<br>{{pd.description}}</h2>
-        <h4>{{pd.price}}</h4>
-        <button class="add-to-cart" type="submit" value="addtocart" name="addtocart">Add to Cart</button>
+      <div class="small-box"></div>
+      <h2>{{pd.name}}<br>{{pd.description}}</h2>
+      <h4>{{pd.price}}</h4>
+      <button class="add-to-cart" type="submit" value="addtocart" name="addtocart">Add to Cart</button>
     </div>
     <div class="kolonka-2">
         <img class="shoe" src="{{pd.image.url}}" alt="image" />
