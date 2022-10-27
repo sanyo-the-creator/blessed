@@ -15,8 +15,9 @@ body {
 }
 
 h1 {
+    font-size: 52px;
     text-align: center;
-    margin-bottom: 75px;
+    margin-bottom: 50px;
 }
 
 form {
@@ -51,19 +52,18 @@ textarea {
 
 .colors {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-p {
-    margin: auto;
-}
-
-.colors input {
-    margin-left: 25px;
-    background-color: transparent;  
+.color {
+    background-color: transparent;
+    border: none;
+    width: 50%;
 }
 
 .submit {
-    margin-top: 10px;
+    margin-top: 40px;
     height: 35px;
     width: 30%;
     background-color: black;
@@ -80,6 +80,87 @@ p {
 .import-file {
     height: 35px;
     cursor: pointer;
+}
+
+.row{
+    position: relative;
+    margin-top: 300px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.kolonka-1{
+    flex-basis: 30%;
+    position: relative;
+}
+
+.kolonka-1 h2{
+    font-size: 54px;
+}
+
+.kolonka-1 h4{
+    margin: 30px 0;
+    font-size: 20px;
+}
+
+.small-box{
+    content: "";
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    left: 100px;
+}
+
+.add-to-cart {
+    width: 30%;
+    border: 0;
+    height: 35px;
+    color:#fff;
+    cursor: pointer;
+}
+
+/* .add-to-cart:hover{
+    width: 160px;
+    display: flex;
+    align-items: center;
+} */
+
+.kolonka-2{
+    position: relative;
+    flex-basis: 70%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.kolonka-2 .shoe{
+    position: relative;
+    width: 600px;
+}
+
+.bg-box{
+    position: absolute;
+    right: 0;
+    border-radius: 10px 0px 0px 10px;
+    height: 80%;
+    min-height: 300px;
+    width: 10%;
+}
+
+button {
+    border: none;
+}
+
+button:hover {
+    color: white;
+}
+
+.bg-box,
+.add-to-cart,
+.small-box {
+    background: linear-gradient(#FFFFFF, #000000 );
 }
 
 ::-webkit-file-upload-button {

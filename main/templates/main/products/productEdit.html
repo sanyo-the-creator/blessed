@@ -36,17 +36,25 @@
       Change
     </button>
   </div>
-
-  <div class="product">
-    <a href="/{{product.id}}/">
-      <img class="image" src="{{pd.image.url}}" alt="image" />
-      <div class="description">
-        <p>Name: {{pd.name}}</p>
-        <p>Desciption: {{product.description}}</p>
-        <p>Category: {{product.categories}}</p>
-        <p>Price: {{pd.price}}$</p>
-      </div>
-    </a>
-  </div>
 </form>
+<div class="row">
+  <div class="kolonka-1" id="kolonka-1">
+    <div class="small-box" id="gradient"></div>
+    <h2><span id="nameoutput">Name</span></br>
+      <span id="sizeoutput">Size</span></h2>
+    <h4 id="priceoutput">1000 €</h4>
+    <button class="add-to-cart" type="submit" id="gradient2" value="Contact" name="Contact">
+      Contact
+    </button>
+  </div>
+  <div class="kolonka-2">
+    <img
+      id="imgoutput"
+      src="{% static '/images/blessedimg.jpeg' %}"
+      alt="your image"
+      class="shoe"
+    />
+    <div class="bg-box" id="gradient3"></div>
+  </div>
+</div>
 {% endblock %}
