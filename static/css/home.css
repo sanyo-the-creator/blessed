@@ -112,9 +112,10 @@ h3 {
 .image {
   position: absolute;
   width: 200px;
-  top: 0;
   left: 0;
-  border: 1px solid red;
+  top: 0;
+  object-fit: cover;
+  clip: rect(25px, 200px, 150px, 0px);
 }
 
 .product {
