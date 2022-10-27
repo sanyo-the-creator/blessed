@@ -1,24 +1,29 @@
-{% load static%}
-<head>
+{% load static %} {% block content %}<head>
   <link rel="stylesheet" href=" {% static '/css/navbar.css' %} " />
 </head>
-<div class="kontajner">
-  <div class="navbar">
-    <a href="/home/">
-      <img src="/static/images/header_logo.png" href="scotts.html" class="logo">
-    </a>
+<div class="container">
+   <div class="navbar">
+     <img src="/static/images/header_logo.png" href="scotts.html" class="logo">
     <form id="form" class="search"> 
-      <input class="search-field" type="search" id="query" placeholder="search.." name="q">
-      <button class="search-button">Search</button>
+      <input class="search-field" type="search" id="query" name="q">
     </form>
-    <nav>
-        <ul>
-            <li><a href="/add/">Sell</a></li>
-            <li><a href="/add/wanted/">Wanted</a></li>
-            <li><a href="/myproducts/">My products</a ></li>
-            <button class="log-out">Log Out</button>
-        </ul>
-    </nav>
-  </div>
+    <button class="search-button">Search</button>
+     <nav>
+         <ul>
+             <li><a href="">Jordan</a></li>
+             <li><a href="dunks.html">Dunks</a></li>
+             <li><a href="yeezy.html">Yeezy 350</a ></li>
+            <li><a href="yeezy500.html">Yeezy 500</a></li>
+            <li><a href="balenciaga.html">Balenciaga</a></li>
+             <button class="log-out">Log Out</button>
+         </ul>
+      </nav>
+    <img src="/static/images/kosik.png" alt="">
+   </div>
 </div>
-{% block content %} {% endblock %}
+<div class="second-navbar">
+  <a href="#">Shoes</a>
+  <a href="#">Shoes</a>
+  <a href="#">Shoes</a>
+</div>
+{% endblock %}
