@@ -1,28 +1,20 @@
-{% extends 'main/navbar.html' %} {% block content %} {% load static %}
+{% extends 'main/navbar.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href=" {% static '/css/cart.css' %} " />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
 </head>
 <body>
-    {% csrf_token %}
-    <div class="cart-info">
-        <h1>Cart</h1>
-        {% if number == 0 %}
-        <h2>Your cart is empty!</h2>
-        <br>
-        <p>Please, add items to your cart before proceeding next steps.</p>
-        <p>Here are some of the best selling products in our shop.</p>
-        <a href="#">   
-            <button class="show-me">Show me</button>
-        </a>
-        <br>
-        <p>or</p>
-        <br>
-        <p>You can also sell your pair of sneakers!!</p>
-        <br>
-        <a href="#">   
-            <button class="sell">Sell</button>
-        </a>
-    </div>    
+    
+    <form method="post" action="">
+        {% csrf_token %}
+    <h1>Cart</h1>
+    {% if number == 0 %}
+    <p>your cart is empty</p>
     {% else %}
     
     {% for cart in user.cart.all %}
@@ -37,5 +29,7 @@
         {% endfor %}
     {% endfor %}
     {% endif %}
+    </form>
 </body>
+</html>
 {% endblock %}

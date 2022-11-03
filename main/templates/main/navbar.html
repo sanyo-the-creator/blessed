@@ -2,22 +2,39 @@
 <head>
   <link rel="stylesheet" href=" {% static '/css/navbar.css' %} " />
 </head>
-<div class="container">
+<div class="navcontainer">
   <div class="navbar">
     <a href="/home/">
-      <img src="/static/images/header_logo.png" href="scotts.html" class="logo">
+      <img src="{% static '/images/header_logo.png' %}" class="logo" />
     </a>
-    <form id="form" class="search"> 
-      <input class="search-field" type="search" id="query" placeholder="search.." name="q">
+
+    <form
+      action="{% url 'search_results' %}"
+      class="search"
+      id="form"
+      method="get"
+    >
+      <input
+        name="name"
+        pattern=".{2,}"
+        class="search-field"
+        type="search"
+        id="query"
+        placeholder="Search for Products..."
+        required
+      />
+      <button type="submit" class="search-button">Search</button>
     </form>
-    <button class="search-button">Search</button>
+
     <nav>
-        <ul>
-            <li><a href="/add/">Sell</a></li>
-            <li><a href="/add/wanted/">Wanted</a></li>
-            <li><a href="/myproducts/">My products</a ></li>
-            <button class="log-out">Log Out</button>
-        </ul>
+      <ul>
+        <li><a href="/add/">Sell</a></li>
+        <li><a href="/mywanted/">Wanted</a></li>
+        <li><a href="/myproducts/">My products</a></li>
+        <a href="/logout/" class="logout"
+          ><button class="log-out">Logout</button></a
+        >
+      </ul>
     </nav>
   </div>
 </div>

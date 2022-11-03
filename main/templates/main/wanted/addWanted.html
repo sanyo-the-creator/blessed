@@ -41,6 +41,12 @@
       min="0.01"
       required
     />
+
+    <select id="country" name="country">
+      {% for country in eu %}
+      <option name="{{country}}" value="{{country}}">{{country}}</option>
+      {% endfor %}
+    </select>
     <input type="file" id="image" name="image" accept="image/*" />
     <div class="colors">
       <p>Pick colors theme of button and boxes</p>
@@ -52,5 +58,26 @@
     Create New
   </button>
 </form>
+
+<div class="row">
+  <div class="kolonka-1" id="kolonka-1">
+    <div class="small-box" id="gradient"></div>
+    <h2><span id="nameoutput">Name</span></br>
+      <span id="sizeoutput">Size</span></h2>
+    <h4 id="priceoutput">1000 €</h4>
+    <button class="add-to-cart" type="submit" id="gradient2" value="Contact" name="Contact">
+      Contact
+    </button>
+  </div>
+  <div class="kolonka-2">
+    <img
+      id="imgoutput"
+      src="{% static '/images/blessedimg.jpeg' %}"
+      alt="your image"
+      class="shoe"
+    />
+    <div class="bg-box" id="gradient3"></div>
+  </div>
+</div>
 <script src="{% static '/js/addProducts.js' %}"></script>
 {% endblock %}

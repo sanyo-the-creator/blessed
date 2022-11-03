@@ -10,22 +10,19 @@
   </head>
   {% block content %}
   <body>
-    <div id="app" class="login">
-      <img src="/static/images/header_logo.png" class="logo">
+    <div id="app">
+    <img src="/static/images/header_logo.png" class="logo">
     <form method="post" class="from-group">
-      <input type="text" name="username" id="username" class="username" placeholder="Username" required>
-      <span class="underline"></span>
-      <br>
-      <input type="text" name="password" id="password" placeholder="Password" required>
-      <span class="underline"></span>
-      <button type="submit" class="log-in">Login</button>
-      <p>or</p>
-      <button class="register">Register</button>
+      {% csrf_token %} {{form}}
+      <p class="register">Don't have an account? Create one <a href="/register">here</a></p>
+      {% comment %}
+      {% endcomment %}
+      <button type="submit" class="login-button">Login</button>
     </form>
-      <a href="#"><img src="/static/images/instagram.png" class="instagram"></a>
-    </div>
-    <script src="{% static '/js/login.js' %}"> 
+    <img src="/static/images/instagram.png" class="instagram">
+    <script src="{% static '/js/login.js' %}">
     </script>
     {% endblock %}
+    
   </body>
 </html>

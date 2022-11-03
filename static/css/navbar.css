@@ -4,89 +4,177 @@
     font-family: "SuisseIntl-Medium",sans-serif;
 }
 
-.container {
-    margin: auto;
-    padding-left: 2%;
-    padding-right: 2%;
-    box-sizing: border-box;
-    max-height: 100px;
+@media (max-width: 991px) {
+    .navcontainer {
+        margin: auto;
+        padding-left: 2%;
+        padding-right: 2%;
+        box-sizing: border-box;
+    }
+
+    .navbar{
+        height: 70px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo{
+        width: 50px;
+        cursor: pointer;
+        margin: 0px 0px;
+    }
+
+    nav{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav ul li{
+        list-style: none;
+        display: inline-block;
+        margin: 10px;
+    }
+
+    nav ul li a{
+        text-decoration: none;
+        color: #000;
+        font-size: 14px;
+    }
+
+    nav ul li a:hover{
+        color: rgb(201, 25, 201);
+    }
+
+    .log-out {
+        width: 80px;
+        height: 25px;
+        color: white;
+        background-color: black;
+        cursor: pointer;
+    }
+
+    .log-out:hover {
+        color: black;
+        background-color: white;
+    }
+
+    .search {
+        display: none;
+    }
+
+    .search-button {
+        width: 80px;
+        height: 25px;
+        font-size: 14px;
+        color: white;
+        background-color: black;
+        cursor: pointer;
+    }
+
+    .search-button:hover {
+        color: black;
+        background-color: white;
+    }
+
+    .search-field {
+        padding-left: 10px;
+        height: 25px;
+        width: 80%;
+    }
 }
 
-.navbar{
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
 
-.logo{
-    width: auto;
-    height: 100px;
-    cursor: pointer;
-    margin: 0px 0px;
-}
-
-nav{
-    flex: 1;
-    text-align: right;
-}
-
-nav ul {
-    padding-right: 25px;
-}
-
-nav ul li{
-    list-style: none;
-    display: inline-block;
-    margin-right: 25px;
-}
-
-nav ul li a{
-    text-decoration: none;
-    color: #000;
-    font-size: 14px;
-}
-
-nav ul li a:hover{
-    color: rgb(201, 25, 201);
-}
-
-.log-out {
-    width: 10%;
-    height: 35px;
-    color: white;
-    background-color: black;
-    cursor: pointer;
-}
-
-.log-out:hover {
-    color: black;
-    background-color: white;
-}
-
-.search {
-    width: 10%;
-    position: relative;
-    margin-left: 25px;
-    display: inline-block;
-}
-
-.search-button {
-    width: 8%;
-    height: 35px;
-    color: white;
-    background-color: black;
-    cursor: pointer;
-    margin-left: 120px;
-}
-
-.search-button:hover {
-    color: black;
-    background-color: white;
-}
-
-.search-field {
-    padding-left: 15px;
-    height: 35px;
-    width: 170%;
-    border: 1px solid black;
+@media (min-width: 992px) {
+    .navcontainer {
+        margin: auto;
+        padding-left: 2%;
+        padding-right: 2%;
+        box-sizing: border-box;
+        max-height: 100px;
+    }
+    
+    .navbar{
+        height: 100px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    
+    .logo{
+        
+        width: 100px;
+        cursor: pointer;
+        margin: 0px 0px;
+    }
+    
+    nav{
+        flex: 1;
+        text-align: right;
+    }
+    
+    nav ul {
+        padding-right: 25px;
+    }
+    
+    nav ul li{
+        list-style: none;
+        display: inline-block;
+        margin-right: 25px;
+    }
+    
+    nav ul li a{
+        text-decoration: none;
+        color: #000;
+        font-size: 14px;
+    }
+    
+    nav ul li a:hover{
+        color: rgb(201, 25, 201);
+    }
+    
+    .log-out {
+        width: 120px;
+        height: 35px;
+        color: white;
+        background-color: black;
+        cursor: pointer;
+    }
+    
+    .log-out:hover {
+        color: black;
+        background-color: white;
+    }
+    
+    .search {
+        width: 50%;
+        position: relative;
+        margin-left: 25px;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .search-button {
+        margin-left: 25px;
+        width: 120px;
+        height: 35px;
+        color: white;
+        background-color: black;
+        cursor: pointer;
+        
+    }
+    
+    .search-button:hover {
+        color: black;
+        background-color: white;
+    }
+    
+    .search-field {
+        padding-left: 15px;
+        height: 35px;
+        width: 240px;
+        border: 1px solid black;
+    }
 }

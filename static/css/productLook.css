@@ -22,9 +22,9 @@
 
 .small-box{
     content: "";
-    width: 10px; 
+    width: 10px;
     height: 100%;
-    background: linear-gradient(#45abffe7, #ff4f23);
+    
     position: absolute;
     left: -50px;
     top: 8px;
@@ -35,7 +35,7 @@
     border: 0;
     height: 35px;
     color:#fff;
-    background: linear-gradient(#45abffe7, #ff4f23);
+    
     cursor: pointer;
 }
 
@@ -60,18 +60,17 @@
     position: absolute;
     right: 0;
     top: 10%;
-    background: linear-gradient(#45abffe7, #ff4f23);
+    
     border-radius: 10px 0px 0px 10px;
     height: 80%;
     width: 10%;
 }
 
-.add-to-cart {
-    background: linear-gradient(#45abffe7, #ff4f23);
+button {
+    
     border: none;
 }
 
 button:hover {
     color: white;
 }
-

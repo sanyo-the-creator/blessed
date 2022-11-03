@@ -3,29 +3,43 @@
   <link rel="stylesheet" href=" {% static '/css/productLook.css' %} " />
 </head>
 <style>
-  .add-to-cart,
+  button,
   .bg-box,
   .add-to-cart,
   .small-box {
     background: linear-gradient({{pd.color1}}, {{pd.color2}});
   }
 </style>
-<form method="post" action="">
-  {% csrf_token %}
 
-  <div class="row">
-    <div class="kolonka-1">
-      <div class="small-box"></div>
-      <h2>{{pd.name}}<br />{{pd.size}}</h2>
-      <h4>{{pd.maxprice}} €</h4>
-      <button class="add-to-cart" type="submit" value="Contact" name="Contact">
-        Contact
-      </button>
-    </div>
-    <div class="kolonka-2">
-      <img class="shoe" src="{{pd.image.url}}" alt="image" />
-      <div class="bg-box"></div>
-    </div>
+<div class="row">
+  <div class="kolonka-1">
+    <div class="small-box" id="gradient3"></div>
+    <h2>{{pd.name}}<br />{{pd.size}}</h2>
+    <h4>{{pd.maxprice}} €</h4>
+    <button
+      class="add-to-cart"
+      type="submit"
+      value="Contact"
+      id="contact-btn"
+      name="Contact"
+    >
+      Contact
+    </button>
   </div>
-</form>
+  <div class="kolonka-2">
+    <img class="shoe" src="{{pd.image.url}}" alt="image" />
+    <div class="bg-box"></div>
+  </div>
+</div>
+<div style="text-align: center">
+  <h2>Wanted:</h2>
+  <h4>Country:</h4>
+  <p>{{pd.country}}</p>
+  <h3>Contact:</h3>
+  <a href="https://www.instagram.com/{{ig}}/"><p>Instagram: @{{ig}}</p></a>
+  <p>Mail:{{pd.user.username}}</p>
+  <a href="/user-{{pd.user.id}}/wanted/"><p>Account: Click</p></a>
+</div>
+<br />
+<script src="{% static '/js/Look.js' %}"></script>
 {% endblock %}
