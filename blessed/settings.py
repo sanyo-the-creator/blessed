@@ -121,8 +121,14 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
-
+#mail sending
+# drsooetfjhjnhfns
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'blessedstore.sk@gmail.com'
+EMAIL_HOST_PASSWORD = 'drsooetfjhjnhfns'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -133,11 +139,11 @@ LOGOUT_REDIRECT_URL = "/"
 
 
 
-STATIC_URL = 'static/static/static/'
+STATIC_URL = 'static/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 MEDIA_URL = 'static/images/'
-if DEBUG:
-    MEDIA_URL = 'images/'
+
+MEDIA_URL = 'images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')  
 
 CRISPY_TEMPLATE_PACK="bootstrap4"

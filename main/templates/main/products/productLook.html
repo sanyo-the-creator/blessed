@@ -1,0 +1,62 @@
+{% extends 'main/navbar.html' %} {% load static %} {% block content %}
+<head>
+  <link rel="stylesheet" href=" {% static '/css/productLook.css' %} " />
+</head>
+<style>
+  .add-to-cart,
+  .bg-box,
+  .add-to-cart,
+  .small-box {
+    background: linear-gradient({{pd.color1}}, {{pd.color2}});
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient({{pd.color1}}, {{pd.color2}});
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient({{pd.color1}}, {{pd.color2}});
+    border-radius: 10px;
+  }
+</style>
+
+<div class="row">
+  <div class="kolonka-1">
+    <div class="small-box" id="gradient3"></div>
+    <h2>{{pd.name}}<br />{{pd.size}}</h2>
+    <h4>{{pd.price}} €</h4>
+    <button
+      class="add-to-cart"
+      type="submit"
+      id="contact-btn"
+      value="Contact"
+      name="Contact"
+    >
+      Contact
+    </button>
+  </div>
+  <div class="kolonka-2">
+    <img class="shoe" src="{{pd.image.url}}" alt="image" />
+    <div class="bg-box"></div>
+  </div>
+</div>
+<br />
+<div style="text-align: center">
+  <h2>For Sale</h2>
+  <br />
+  <h4>Country:</h4>
+  <p>{{pd.country}}</p>
+  <h4>Condition:</h4>
+  <p>{{pd.condition}}</p>
+  <h4>Description:</h4>
+  <p>{{pd.description}}</p>
+  <br />
+  <h3>Contact:</h3>
+  <a href="https://www.instagram.com/{{ig}}/"><p>Instagram: @{{ig}}</p></a>
+  <p>Mail:{{pd.user.username}}</p>
+  <a href="/user-{{pd.user.id}}/products/"><p>Account: Click</p></a>
+</div>
+<br />
+<script src="{% static '/js/Look.js' %}"></script>
+{% endblock %}
