@@ -138,6 +138,14 @@ def SearchResultsView(request):
 
  #products
 def products(request ):
+    categories_display="none"
+    condition_display="none"
+    size_display="none"
+    country_display="none"
+    size_arrow=0
+    condition_arrow=0
+    categories_arrow=0
+    country_arrow=0
     c=[]
     x=[]
     y=[]
@@ -166,12 +174,16 @@ def products(request ):
                 choice="Lowest price"
         if request.POST.getlist("size"):
             size="choosen"
+            size_display="block"
+            size_arrow=180
             x=request.POST.getlist("size")
             pd =Products.objects.all().order_by(order).filter(active = True,size__in=x).exclude(user=request.user)
         else:
             pd =Products.objects.all().order_by(order).filter(active = True).exclude(user=request.user)
         if request.POST.getlist("condition"):
             condition="choosen"
+            condition_display="block"
+            condition_arrow=180
             y=request.POST.getlist("condition")
 
             if size == "choosen":
@@ -180,6 +192,8 @@ def products(request ):
                 pd =Products.objects.all().order_by(order).filter(active = True,condition__in=y).exclude(user=request.user)
         if request.POST.getlist("country"):
             country="choosen"
+            country_display="block"
+            country_arrow=180
             z=request.POST.getlist("country")
 
             if size == "choosen" or condition=="choosen":
@@ -188,6 +202,8 @@ def products(request ):
                 pd =Products.objects.all().order_by(order).filter(active = True,country__in=z).exclude(user=request.user)
         if request.POST.getlist("category"):
             category=="choosen"
+            categories_display="block"
+            categories_arrow=180
             c=request.POST.getlist("category")
 
             if size == "choosen" or condition=="choosen" or country=="choosen":
@@ -221,7 +237,7 @@ def products(request ):
 
 
 
-    return render(request, "main/products/products.html", {"pd":pd,"choice":choice,"order":order,"choicep":choicep,"price":pricex,"categories":categories,"sizes":sizes,"x":x,"y":y,"z":z,"c":c,"conditions":conditions,"eu_countries":eu_countries})
+    return render(request, "main/products/products.html", {"size_display":size_display,"country_display":country_display,"categories_display":categories_display,"condition_display":condition_display,"size_arrow":size_arrow,"country_arrow":country_arrow,"categories_arrow":categories_arrow,"condition_arrow":condition_arrow,"pd":pd,"choice":choice,"order":order,"choicep":choicep,"price":pricex,"categories":categories,"sizes":sizes,"x":x,"y":y,"z":z,"c":c,"conditions":conditions,"eu_countries":eu_countries})
 def userproducts(response):
     pd=Products.objects.all().order_by('-id').filter(user=response.user)
     if response.method =="POST":
