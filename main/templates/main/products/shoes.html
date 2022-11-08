@@ -41,7 +41,7 @@
       <option value="2000" name="2000">up to 2000€</option>
       <option value="2001" name="2001">from 2000€</option>
     </select>
-    <button><h5>Size</h5><img src="/static/images/arrow.png" class="arrow"></button>
+    <button class="category"><h5>Size</h5><img src="/static/images/arrow.png" class="arrow"></button>
     {% for size in sizes %} {% if size in x %}
     <label
       ><input
@@ -62,7 +62,7 @@
       />{{size}}</label
     >
     {%endif%} {% endfor %}
-    <button><h5>Condition</h5><img src="/static/images/arrow.png" class="arrow"></button>
+    <button class="category"><h5>Condition</h5><img src="/static/images/arrow.png" class="arrow"></button>
     {% for condition in conditions %} {% if condition in y %}
     <label
       ><input
@@ -83,7 +83,7 @@
       />{{condition}}</label
     >
     {%endif%} {% endfor %}
-    <button><h5>Country</h5><img src="/static/images/arrow.png" class="arrow"></button>
+    <button class="category"><h5>Country</h5><img src="/static/images/arrow.png" class="arrow"></button>
     {% for country in eu_countries %} {% if country in z %}
     <label
       ><input
@@ -102,7 +102,7 @@
         value="{{country}}"
         onchange="this.form.submit()"
       />{{country}}</label
-    >
+    >  
     {%endif%} {% endfor %}
   </form>
   {% if shoes.count == 0 %}

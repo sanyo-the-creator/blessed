@@ -3,6 +3,8 @@
   <link rel="stylesheet" href=" {% static '/css/navbar.css' %} " />
 </head>
 <div class="navcontainer">
+  <img src="/static/images/search.png" class="search-mobile">
+
   <div class="navbar">
     <a href="/home/">
       <img src="{% static '/images/header_logo.png' %}" class="logo" />
@@ -35,7 +37,19 @@
           ><button class="log-out">Logout</button></a
         >
       </ul>
+
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="/add/">Sell</a></li>
+        <li class="nav-item"><a href="/mywanted/">Wanted</a></li>
+        <li class="nav-item"><a href="/myproducts/">My products</a></li>
+      </ul>
+      <div class="menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </nav>
   </div>
 </div>
+<script src="/static/js/navbar.js"></script>
 {% block content %} {% endblock %}

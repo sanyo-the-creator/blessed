@@ -21,6 +21,10 @@ label {
   display: none;
 }
 
+p {
+  margin-bottom: 0px;
+}
+
 .instagram {
   position: absolute;
   width: 50px;
@@ -49,6 +53,8 @@ button {
 }
 
 input {
+  padding-left: 10px;
+  width: 100%;
   height: 35px;
   outline: none;
   background-color: transparent;
@@ -64,6 +70,7 @@ input:-webkit-autofill:active {
 }
 
 .login-button {
+  margin-top: 25px;
   height: 35px;
   width: 120px;
   background-color: black;
@@ -101,12 +108,14 @@ a {
 }
 
 .bubble--bust {
-    z-index: -1;
-  transform: scale(1.8);}
-  .from-group .register {
-    color: black;
-  }
-  .from-group .register:hover {
-    
-    cursor: default;
-  }
+  z-index: -1;
+  transform: scale(1.8);
+}
+
+.from-group .register {
+  color: black;
+}
+
+.from-group .register:hover {
+  cursor: default;
+}

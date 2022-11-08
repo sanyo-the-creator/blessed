@@ -95,12 +95,9 @@ select {
 
 body button {
     background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .arrow {
     transform: rotate(270deg);
-    width: 10px;
+    width: 15px;
 }
