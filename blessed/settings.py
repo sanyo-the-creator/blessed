@@ -83,9 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',  
         'NAME': BASE_DIR / 'db.sqlite3',  
     }
-}
-
-
+}    
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -121,22 +119,43 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = '/'
 
 
 
 
+#mail sending 
+# drsooetfjhjnhfns 
+ 
+EMAIL_HOST = 'smtp.gmail.com' 
+EMAIL_USE_TLS = True 
+EMAIL_PORT = 587 
+EMAIL_HOST_USER = 'blessedstore.sk@gmail.com' 
+EMAIL_HOST_PASSWORD = 'drsooetfjhjnhfns' 
+# Static files (CSS, JavaScript, Images) 
+# https://docs.djangoproject.com/en/4.0/howto/static-files/ 
+ 
+LOGIN_REDIRECT_URL = "/" 
+LOGOUT_REDIRECT_URL = "/" 
+ 
+ 
+ 
+ 
+ 
 
-STATIC_URL = 'static/static/static/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
-MEDIA_URL = 'static/images/'
-if DEBUG:
-    MEDIA_URL = 'images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')  
+STATIC_URL = 'static/static/static/'
+STATICFILES_DIRS = (
+   os.path.join(BASE_DIR, 'static'),
+)
+
+MEDIA_URL = 'static/static/static/static/images/' 
+if DEBUG: 
+    MEDIA_URL = 'static/images/' 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images') 
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-
+ 
+# Default primary key field type 
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field 
+ 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

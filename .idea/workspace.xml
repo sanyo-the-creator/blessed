@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cf1de63f-7f6e-466d-b1cb-6b938b9b0f7f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/blessed/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/blessed/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blessed/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blessed/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/products/addProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/products/addProducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/products/productLook.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/products/productLook.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/products/shoes.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/products/shoes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/products/userproducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/products/userproducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/register/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register/templates/register/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/register/templates/register/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/register/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/addProducts.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/addProducts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/productLook.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/productLook.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/products.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/products.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/userproducts.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/userproducts.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2G76tGhhNauUo5BkBbaArMSEbEj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Alexander/work-things/cactus jack",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cf1de63f-7f6e-466d-b1cb-6b938b9b0f7f" name="Changes" comment="" />
+      <created>1665727488102</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665727488102</updated>
+      <workItem from="1665727489305" duration="920000" />
+      <workItem from="1667048661564" duration="666000" />
+      <workItem from="1667147070359" duration="117000" />
+      <workItem from="1667147664766" duration="695000" />
+      <workItem from="1667209860366" duration="10000" />
+      <workItem from="1667944878532" duration="63000" />
+      <workItem from="1668271229295" duration="26000" />
+      <workItem from="1668356542741" duration="859000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

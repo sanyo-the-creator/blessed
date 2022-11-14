@@ -1,27 +1,50 @@
 {% load static%}
 <head>
   <link rel="stylesheet" href=" {% static '/css/navbar.css' %} " />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<div class="navbar">
-  <a href="/"> <h1>Blessed</h1></a>
-  <div class="nav">
-    <ul>
-      <li><a href="/">About us</a></li>
-      <li><a href="wanted.html">Wanted</a></li>
-      <li><a href="/myproducts/">My Products</a></li>
-      <li>
-        <a href="/logout/"
-          ><button class="logout" type="button">Log out</button></a
+<div class="navcontainer">
+  <img src="/static/images/search.png" class="search-mobile">
+
+  <div class="navbar">
+    <a href="/home/">
+      <img src="{% static '/images/header_logo.png' %}" class="nav-logo" />
+    </a>
+
+    <form
+      action="{% url 'search_results' %}"
+      class="search"
+      id="form"
+      method="get"
+    >
+      <input
+        name="name"
+        pattern=".{2,}"
+        class="search-field" 
+        type="search"
+        id="query"
+        placeholder="Search for Products..."
+        required
+      />
+      <button type="submit" class="search-button">Search</button>
+    </form>
+
+    <nav>
+      <ul>
+        <li><a href="/add/">Sell</a></li>
+        <li><a href="/mywanted/">Wanted</a></li>
+        <li><a href="/myproducts/">My products</a></li>
+        <a href="/logout/" class="logout"
+          ><button class="log-out">Logout</button></a
         >
-      </li>
-    </ul>
+      </ul>
+      <button id="menu" onclick="menu()"> Open
+        <div id="menu-container" style="display: none;">
+          <button id="close" onclick="close()"></button>
+        </div>
+      </button>
+    </nav>
   </div>
-  <a href="/cart/"><img src="/static/images/kosik.png" class="basket" /></a>
 </div>
-<div class="second-navbar">
-  <a href="#">Shoes</a>
-  <a href="#">Shoes</a>
-  <a href="#">Shoes</a>
-</div>
-<br />
+<!-- <script src="/static/js/navbar.js"></script> -->
 {% block content %} {% endblock %}
