@@ -19,6 +19,44 @@ h6 {
     margin-bottom: 3%;
 }
 
+.desc-content-first {
+    width: 80%;
+    line-height: 1.4;
+    margin-bottom: 5%;
+}
+
+.visuals-first {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin-top: 5%;
+}
+
+.condition-first, .price-first, .question-country{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    padding: 0 15px 0 15px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-bottom: 4%;
+}
+
+.links-first {
+    margin-bottom: 3%;
+    width: 95%;
+}
+
+.instagram-button, .mail-button {
+    margin-bottom: 2%;
+    display: flex;
+    cursor: pointer;
+    font-size: 16px;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 35px;
+}
 
 .instagram-asking , .ig-first , .mail-asking , .mail{
     display: flex;
@@ -45,7 +83,7 @@ a {
 }
 
 .kolonka-1 h2{
-    font-size: 44px;
+    font-size: 54px;
 }
 
 .kolonka-1 h4{
@@ -65,7 +103,7 @@ a {
     border: 0;
     height: 35px;
     color:#fff;
-    
+    cursor: pointer;
 }
 
 /* .add-to-cart:hover{
@@ -96,25 +134,43 @@ a {
     width: 10%;
 }
 
-
-.description-1,.contact-line,.about-product,.for-sale{
-    width: 80%;
-}
-.description-1{
-    margin-top: 5em;
-}
-.contact-line,.about-product,.for-sale{
-    width: 72%;
+.bottom-content {
+    margin: auto;
+    margin-top: 3%;
+    display: flex;
+    margin-bottom: 5%;
+    width: 70%;
 }
 
+.content-first {
+    flex-basis: 50%;
+    border-left: 1px solid grey;
+    border-top: 1px solid grey;
+}
+
+.desc-first {
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-bottom: 5%;
+}
+
+.desc-content-first {
+    margin-left: 15px;
+}
+
+.bottom-info {
+    flex-basis: 50%;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
 
 h6 {
     margin-top: 15px;
 }
-.center{
-    display: flex;
-    justify-content: center;
-}
+
+
+
+
 
 
 
@@ -157,197 +213,13 @@ h6 {
 }
 
 .description, .row-1, .name, .visuals, hr, .description-1, .about-product, .contact, .buttons-1 {
-    display: block;
-}
-.bottom-content,.kolonka-2-1,.name {
-    display: none;
-}
-/* nove */
-
-
-.bottom-content {display: none;}
-.row-1 {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-}
-
-
-.wantedbtn{
     display: none;
 }
 
-h3 {
-    font-size: 45px;
-    max-width: 100%;
-    margin-left: 15px;
-    margin-top: 25px;
-}
 
-h4 {
-    margin-top: 25px;
-    font-size: 30px;
-    margin-bottom: 10px;
-    display: block;
-}
-
-h6 {
-    font-size: 30px;
-    margin-bottom: 25px;
-    height: 40px;
-}
-
-a {
-    text-decoration: none;
-}
-
-#profile-btn {
-    display: block;
-    width: 50%;
-    background-color: black;
-    color: white;
-    height: 50px;
-    font-size: 20px;
-    transform: translateX(50%);
-    margin-bottom: 25px;
     
-    border-radius: 5px;
-}
 
-.name {
-    max-width: 100%;
-    margin-top: 25px;
-}
-
-.condition , .price{
-    width: 45%;
-    height: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid rgb(213, 213, 213);
-    border-radius: 5px;
-    color: white;
-}
-
-.visuals {
-    margin-top: 15px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
-.visuals p {
-    font-size: 17px;
-}
-
-.country, .question {
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-.info {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    margin-left: 10%;
-}
-
-.desc-content {
-    width: 80%;
-    font-size: 18px;
-    color: rgb(128, 128, 128);
-    margin-bottom: 20px;
-    margin-top: 15px;
-}
-
-.instagram {
-    margin-left: 5px;
-    margin-right: 5px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.instagram p {
-    font-size: 18px;
-    color: rgb(128, 128, 128);
-    margin-bottom: 5px;
-}
-
-hr {
-    width: 90%;
-    transform: translateX(5%);
-    z-index: -1;
-}
-
-.for-sale {
-    position: absolute;
-    margin-top: 20px;
-} 
-
-.about-product {
-    position: absolute;
-    margin-top: 20px;
-}
-
-.desc {
-    margin-top: 20px;
-    font-size: 30px;
-    margin-bottom: 10px;
-    width: 220px;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    height: 40px;
-    z-index: 2;
-    background-color: white;
-}
-
-.description-1 h4 {
-    background-color: white; 
-    width: 170px;
-    margin: auto;
-    margin-bottom: 15px;
-    z-index: 2;
-}
-
-
-.mail {
-    margin-left: 5px;
-    margin-right: 5px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 18px;
-    color: rgb(128, 128, 128);
-}
-
-.contact-line {
-    position: absolute;
-    margin-top: 20px;
-}
-
-.contact h6{
-    background-color: rgb(255, 255, 255); 
-    width: 170px;
-    margin: auto;
-    margin-bottom: 15px;
-    z-index: 2;
-}
-
-.links {
-    width: 90%;
-    transform: translateX(5%);
-    margin-bottom: 30px;
-    border-left: 1px solid grey;
-    border-right: 1px solid grey;
-}
-@media (max-width:991px) {
-    .row {
-        display: none;
-    }
-
-    .description, .row-1, .name, .visuals, hr, .description-1, .about-product, .contact, .buttons-1,.kolonka-2-1 {
+    .description,  .visuals, hr, .description-1, .about-product, .contact, .buttons-1 {
         display: block;
     }
     .bottom-content {display: none;}
@@ -357,7 +229,7 @@ hr {
     }
 
     h1 {
-        font-size: 40px;
+        font-size: 50px;
         margin-left: 15px;
     }
 
@@ -376,13 +248,13 @@ hr {
 
     h4 {
         margin-top: 25px;
-        font-size: 30px;
+        font-size: 35px;
         margin-bottom: 10px;
         display: block;
     }
 
     h6 {
-        font-size: 30px;
+        font-size: 35px;
         margin-bottom: 25px;
         height: 40px;
     }
@@ -483,7 +355,7 @@ hr {
     
     .desc {
         margin-top: 20px;
-        font-size: 30px;
+        font-size: 35px;
         margin-bottom: 10px;
         width: 220px;
         display: flex;
@@ -532,10 +404,3 @@ hr {
         border-left: 1px solid grey;
         border-right: 1px solid grey;
     }
-    .wantedbtn{
-        display: block;
-    }
-    .description-1 {
-        margin-top: 3em;
-    }
-}

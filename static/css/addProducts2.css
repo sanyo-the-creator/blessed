@@ -74,7 +74,7 @@ textarea {
 
 .submit {
     position: absolute;
-    
+    top: 105%;
     height: 35px;
     left: 50%;
     transform: translateX(-50%);
@@ -281,7 +281,7 @@ hr {
     }
 
     .submit {
-        top: 195%;
+        top: 145%;
     }
 
     .sugest p{
