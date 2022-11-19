@@ -123,7 +123,7 @@ h2, h3{
   left: 0;
   top: 10px;
   object-fit: cover;
-  /* clip: rect(25px, 200px, 150px, 0px); */
+  clip: rect(25px, 200px, 150px, 0px);
 }
 
 .info {
