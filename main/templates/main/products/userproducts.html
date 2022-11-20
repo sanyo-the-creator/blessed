@@ -1,6 +1,20 @@
 {% extends 'main/navbar.html' %}{% load static%} {% block content%}
 <head>
   <link rel="stylesheet" href=" {% static '/css/userproducts.css' %} " />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    property="og:description"
+    content="Blessed is website for selling or buying hype shoes, clothes and accesories"
+  />
+  <meta property="og:title" content="My Products - Blessed" />
+  <title>My Products - Blessed</title>
+  <meta name="author" content="Jerguš Sňahničan, Alexander Poole" />
+  <meta
+    name="keywords"
+    content="Blessed, blessed, resell,market, hypebeast,shoes,clothes,accesories"
+  />
 </head>
 <body>
   <h2>My Products</h2>
@@ -12,7 +26,7 @@
   <p>nemas vlastne produkty</p>
 
   {% else %}
-  <form method="post" action="" id="form_id" >
+  <form method="post" action="" id="form_id">
     {% csrf_token %} {% for product in pd %}
 
     <div class="product">
@@ -32,26 +46,30 @@
       <button type="submit" value="{{product.id}}" name="delete">Remove</button>
       <button><a href="/edit-{{product.id}}/">Edit</a></button>
       {% if product.active == True%}
-   
+
       <label class="switch">
-        
-        <input type="checkbox" onchange="form.submit()" name="p{{product.id}}" checked />
+        <input
+          type="checkbox"
+          onchange="form.submit()"
+          name="p{{product.id}}"
+          checked
+        />
         <span class="slider round"></span>
-        
       </label>
-    
-    
-    {% else %}
-    
-    <label class="switch">
-      <input type="checkbox" onchange="form.submit()"   name="p{{product.id}}"/>
-      <span class="slider round"></span>
-    </label>
-  
-  
-  {% endif %}
-  {{product.active}}
-</div>
+
+      {% else %}
+
+      <label class="switch">
+        <input
+          type="checkbox"
+          onchange="form.submit()"
+          name="p{{product.id}}"
+        />
+        <span class="slider round"></span>
+      </label>
+
+      {% endif %} {{product.active}}
+    </div>
     {% endfor %}
   </form>
   {% endif %}

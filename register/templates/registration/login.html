@@ -2,18 +2,28 @@
 {% load static %}
 <html lang="en">
   <head>
-    <title>{% block title %}Login Here{% endblock %}</title>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    property="og:description"
+    content="Blessed is website for selling or buying hype shoes, clothes and accesories"
+  />
+  <meta property="og:title" content="Login - Blessed" />
+  <title>Login - Blessed</title>
+  <meta name="author" content="Jerguš Sňahničan, Alexander Poole" />
+  <meta
+    name="keywords"
+    content="Blessed, blessed, resell,market, hypebeast,shoes,clothes,accesories"
+  />
     <link rel="stylesheet" href=" {% static '/css/login.css' %} " />
   </head>
   {% block content %}
   <body>
     <div id="app">
-    {% load crispy_forms_tags %} 
+    
     <form method="post" class="from-group">
-      {% csrf_token %} {{form|crispy}}
+      {% csrf_token %} {{form}}
       <p class="register">Don't have an account? Create one <a href="/register">here</a></p>
       <p class="register">Forgot your password? Click <a href="/reset_password">here</a></p>
       {% comment %}

@@ -1,6 +1,20 @@
 {% extends 'main/navbar.html' %} {% load static %} {% block content %}
 <head>
   <link rel="stylesheet" href=" {% static '/css/products.css' %} " />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta
+    name="description"
+    property="og:description"
+    content="Blessed is website for selling or buying hype shoes, clothes and accesories"
+  />
+  <meta property="og:title" content="Products - Blessed" />
+  <title>Products - Blessed</title>
+  <meta name="author" content="Jerguš Sňahničan, Alexander Poole" />
+  <meta
+    name="keywords"
+    content="Blessed, blessed, resell,market, hypebeast,shoes,clothes,accesories"
+  />
 </head>
 <h2>Products:</h2>
 <form method="post" action="">
@@ -36,123 +50,157 @@
     <option value="2000" name="2000">up to 2000€</option>
     <option value="2001" name="2001">from 2000€</option>
   </select>
-  <div style="display: none;">
-    <input type="checkbox" id="sizecheck" name="sizecheck" {{sizecheck}}>
-    <input type="checkbox" id="conditioncheck" name="conditioncheck" {{conditioncheck}}>
-    <input type="checkbox" id="categoriescheck" name="categoriescheck" {{categoriescheck}}>
-    <input type="checkbox" id="countrycheck" name="countrycheck" {{countrycheck}}>
+  <div style="display: none">
+    <input type="checkbox" id="sizecheck" name="sizecheck" {{sizecheck}} />
+    <input
+      type="checkbox"
+      id="conditioncheck"
+      name="conditioncheck"
+      {{conditioncheck}}
+    />
+    <input
+      type="checkbox"
+      id="categoriescheck"
+      name="categoriescheck"
+      {{categoriescheck}}
+    />
+    <input
+      type="checkbox"
+      id="countrycheck"
+      name="countrycheck"
+      {{countrycheck}}
+    />
   </div>
   <button type="button" onclick="Categories()">
     <h5>Categories</h5>
-    <img src=" {% static '/images/arrow.png' %}" class="arrow" id="categories_arrow"   style="transform: rotate({{categories_arrow}}deg);"/>
+    <img
+      src=" {% static '/images/arrow.png' %}"
+      class="arrow"
+      id="categories_arrow"
+      style="transform: rotate({{categories_arrow}}deg);"
+    />
   </button>
-  <div id="categories" class="categories" style="display:{{categories_display}} ;">
-  {% for category in categories %} {% if category in c %}
-  <label
-    ><input
-      type="checkbox"
-      name="category"
-      value="{{category}}"
-      onchange="this.form.submit()"
-      checked
-    />{{category}}</label
+  <div
+    id="categories"
+    class="categories"
+    style="display:{{categories_display}} ;"
   >
-  {% else %}
-  <label
-    ><input
-      type="checkbox"
-      name="category"
-      value="{{category}}"
-      onchange="this.form.submit()"
-    />{{category}}</label
-  >
-  {%endif%} {% endfor %}
-</div>
-  <button type="button"  onclick="Size()">
+    {% for category in categories %} {% if category in c %}
+    <label
+      ><input
+        type="checkbox"
+        name="category"
+        value="{{category}}"
+        onchange="this.form.submit()"
+        checked
+      />{{category}}</label
+    >
+    {% else %}
+    <label
+      ><input
+        type="checkbox"
+        name="category"
+        value="{{category}}"
+        onchange="this.form.submit()"
+      />{{category}}</label
+    >
+    {%endif%} {% endfor %}
+  </div>
+  <button type="button" onclick="Size()">
     <h5>Size</h5>
-    <img src=" {% static '/images/arrow.png' %}" class="arrow" id="Size_arrow"  style="transform: rotate({{size_arrow}}deg);"/>
+    <img
+      src=" {% static '/images/arrow.png' %}"
+      class="arrow"
+      id="Size_arrow"
+      style="transform: rotate({{size_arrow}}deg);"
+    />
   </button>
   <div id="size" class="size" style="display: {{size_display}};">
-  {% for size in sizes %} {% if size in x %}
-  <label
-    ><input
-      type="checkbox"
-      name="size"
-      value="{{size}}"
-      onchange="this.form.submit()"
-      checked
-    />{{size}}</label
-  >
-  {% else %}
-  <label
-    ><input
-      type="checkbox"
-      name="size"
-      value="{{size}}"
-      onchange="this.form.submit()"
-    />{{size}}</label
-  >
-  {%endif%} {% endfor %}
-</div>
+    {% for size in sizes %} {% if size in x %}
+    <label
+      ><input
+        type="checkbox"
+        name="size"
+        value="{{size}}"
+        onchange="this.form.submit()"
+        checked
+      />{{size}}</label
+    >
+    {% else %}
+    <label
+      ><input
+        type="checkbox"
+        name="size"
+        value="{{size}}"
+        onchange="this.form.submit()"
+      />{{size}}</label
+    >
+    {%endif%} {% endfor %}
+  </div>
   <button type="button" onclick="Condition()">
     <h5>Condition</h5>
-    <img src=" {% static '/images/arrow.png' %}" class="arrow" id="condition_arrow"  style="transform: rotate({{condition_arrow}}deg);"/>
+    <img
+      src=" {% static '/images/arrow.png' %}"
+      class="arrow"
+      id="condition_arrow"
+      style="transform: rotate({{condition_arrow}}deg);"
+    />
   </button>
   <div id="condition" class="condition" style="display: {{condition_display}};">
-  {% for condition in conditions %} {% if condition in y %}
-  <label
-    ><input
-      type="checkbox"
-      name="condition"
-      value="{{condition}}"
-      onchange="this.form.submit()"
-      checked
-    />{{condition}}</label
-  >
-  {% else %}
-  <label
-    ><input
-      type="checkbox"
-      name="condition"
-      value="{{condition}}"
-      onchange="this.form.submit()"
-    />{{condition}}</label
-  >
-  {%endif%} {% endfor %}
-</div>
+    {% for condition in conditions %} {% if condition in y %}
+    <label
+      ><input
+        type="checkbox"
+        name="condition"
+        value="{{condition}}"
+        onchange="this.form.submit()"
+        checked
+      />{{condition}}</label
+    >
+    {% else %}
+    <label
+      ><input
+        type="checkbox"
+        name="condition"
+        value="{{condition}}"
+        onchange="this.form.submit()"
+      />{{condition}}</label
+    >
+    {%endif%} {% endfor %}
+  </div>
   <button type="button" onclick="Country()">
     <h5>Country</h5>
-    <img src=" {% static '/images/arrow.png' %}" class="arrow" id="country_arrow"  style="transform: rotate({{country_arrow}}deg);"/>
+    <img
+      src=" {% static '/images/arrow.png' %}"
+      class="arrow"
+      id="country_arrow"
+      style="transform: rotate({{country_arrow}}deg);"
+    />
   </button>
   <div id="country" class="country" style="display: {{country_display}};">
-  {% for country in eu_countries %} {% if country in z %}
-  <label
-    ><input
-      type="checkbox"
-      name="country"
-      value="{{country}}"
-      onchange="this.form.submit()"
-      checked
-    />{{country}}</label
-  >
-  {% else %}
-  <label
-    ><input
-      type="checkbox"
-      name="country"
-      value="{{country}}"
-      onchange="this.form.submit()"
-    />{{country}}</label
-  >
-  {%endif%} {% endfor %}
-  
-
-
-
-
-</div>
+    {% for country in eu_countries %} {% if country in z %}
+    <label
+      ><input
+        type="checkbox"
+        name="country"
+        value="{{country}}"
+        onchange="this.form.submit()"
+        checked
+      />{{country}}</label
+    >
+    {% else %}
+    <label
+      ><input
+        type="checkbox"
+        name="country"
+        value="{{country}}"
+        onchange="this.form.submit()"
+      />{{country}}</label
+    >
+    {%endif%} {% endfor %}
+  </div>
 </form>
-<br><br>
+<br /><br />
 {% if pd.count == 0 %}
 <p>Nothing Match</p>
 {% endif %}
@@ -168,15 +216,12 @@
         <p>condition: {{product.condition}}</p>
         <p>Category: {{product.categories}}</p>
         <p>Price: {{product.price}}€</p>
-        
       </a>
     </li>
     {% endfor %}
   </ul>
 </div>
-<script src="{% static '/js/filterproducts.js' %}">
-</script>
+<script src="{% static '/js/filterproducts.js' %}"></script>
 <!-- <script src="{% static '/js/reload.js' %}">
 </script> -->
 {% endblock %}
-
