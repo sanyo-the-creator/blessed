@@ -200,8 +200,8 @@
     {%endif%} {% endfor %}
   </div>
 </form>
-<br /><br />
-{% if pd.count == 0 %}
+<br />{{count}}<br />
+{% if count == 0 %}
 <p>Nothing Match</p>
 {% endif %}
 <div class="container">
@@ -258,8 +258,8 @@
 {%else%}
 <a href=""><button>&raquo;</button></a>
 {%endif%}
-{%endif%}
 </div>
+{%endif%}
 <script src="{% static '/js/filterproducts.js' %}"></script>
 <!-- <script src="{% static '/js/reload.js' %}">
 </script> -->
