@@ -141,7 +141,7 @@ LOGOUT_REDIRECT_URL = "/"
 
 
 
-STATIC_URL = 'static/static/static/'
+STATIC_URL = 'static/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 MEDIA_URL = 'static/images/'
 

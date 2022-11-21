@@ -17,7 +17,7 @@
   />
 </head>
 <h1>Search Results for {{name}}:</h1>
-<form method="post" action="">
+<form method="post" action="/search/?name={{name}}">
   {% csrf_token %}
   <input name="name" value="{{name}}" style="display: none;"></input>
   <select name="order_by" id="order_by" onchange="this.form.submit()">
@@ -189,6 +189,48 @@
     {% endfor %}
   </ul>
 </div>
+{% if pd.paginator.num_pages > 1%}
+<div>
+  {% if pd.number > 1 %}
+  <a href="?name={{name}}&page={{ pd.previous_page_number }}"
+    ><button style="background-color: dodgerblue">&laquo;</button></a
+  >
+  {% else%}
+  <a href=""><button>&laquo;</button></a>
+  {% endif %} {% if pd.has_previous %}
+  <a href="?name={{name}}&page=1"><button>1</button></a>
+  {% endif %} {% if previous2 > 1 and pd.number == pd.paginator.num_pages%}
+  <a href="?name={{name}}&page={{ previous2 }}"><button>{{ previous2 }}</button></a>
+  {% endif %} {% if pd.number > 2 %}
+  <a href="?name={{name}}&page={{ pd.previous_page_number }}"
+    ><button>{{ pd.previous_page_number }}</button></a
+  >
+  {% endif %}
+
+  <span class="current">
+    <button style="background-color: dodgerblue">{{ pd.number }}</button>
+  </span>
+
+  {% if pd.has_next %} {% if pd.next_page_number != pd.paginator.num_pages%}
+  <a href="?name={{name}}&page={{ pd.next_page_number }}"
+    ><button>{{pd.next_page_number}}</button></a
+  >
+  {%endif%} {% if next2 < pd.paginator.num_pages and pd.number == 1%}
+  <a href="?name={{name}}&page={{ next2 }}"><button>{{next2}}</button></a>
+  {%endif%}
+  <!-- <button>...</button> -->
+  <a href="?name={{name}}&page={{ pd.paginator.num_pages }}"
+    ><button>{{ pd.paginator.num_pages }}</button></a
+  >
+  {% endif %} {% if pd.number != pd.paginator.num_pages%}
+  <a href="?name={{name}}&page={{ pd.next_page_number }}"
+    ><button style="background-color: dodgerblue">&raquo;</button></a
+  >
+  {%else%}
+  <a href=""><button>&raquo;</button></a>
+  {%endif%}
+</div>
+{%endif%}
 <script src="{% static '/js/filterproducts.js' %}">
 </script>
 <!-- <script src="{% static '/js/reload.js' %}">
