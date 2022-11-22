@@ -17,7 +17,7 @@
   />
 </head>
 
-<form method="post" action="" enctype="multipart/form-data">
+<form method="post" action="{% url 'WantedCharge' %}" enctype="multipart/form-data" id="payment-form">
   {% csrf_token %}
   <h1>Add Wanted</h1>
   <input type="text"
@@ -76,9 +76,18 @@
   name="image"
   accept="image/*"
   onchange="loadFile(event)"
-  required />
+   />
   <input type="color" name="color1" id="color1input" value="#FFFFFF" onchange="ChangeColor()" />
   <input type="color" name="color2" id="color2input" value="#000000" onchange="ChangeColor()"/>
+  <div class="form-row">
+    <label for="card-element"> Credit or debit card </label>
+    <div id="card-element">
+      <!-- A Stripe Element will be inserted here. -->
+    </div>
+
+    <!-- Used to display Element errors. -->
+    <div id="card-errors" role="alert"></div>
+  </div>
   <button type="submit" name="create" value="create" class="btn btn-success">
     Create New
   </button>
@@ -103,7 +112,7 @@
     <div class="bg-box" id="gradient3"></div>
   </div>
 </div>
+<script src="https://js.stripe.com/v3/"></script>
 <script src="{% static '/js/addProducts.js' %}"></script>
-<script src="{% static '/js/reload.js' %}">
 </script>
 {% endblock %}

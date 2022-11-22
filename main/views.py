@@ -9,8 +9,98 @@ from django.core.paginator import Paginator
 from django.core.files.storage import FileSystemStorage
 import os
 from django.db.models import Q
+from django.urls import reverse
+import stripe
+stripe.api_key="sk_test_51M6dQHLUoQwS73Adxh3Dat5mqvFBTo2V33xOyuHTvWR3MIEqBGNB8DSIn5OzOfIRdJoMpW3ytN3ai6Qhnsx89EH000z61ztooP"
 
+def ProductCharge(request):
+    
+    if  request.method == 'POST':
+        try:
+            print('DATa:',request.POST)
+            product=request.POST['name']
+            customer = stripe.Customer.create(email=request.user.email,name=request.user.first_name,description=request.POST['name'],source=request.POST['stripeToken'])
+            charge = stripe.Charge.create(customer=customer,amount=100,currency='eur')
+            name=request.POST.get("name")
+            p=Products(name=name)
+            p.description = request.POST.get("description")
+            p.categories = request.POST.get("category")
 
+            if p.categories =="Clothes":
+                p.size = request.POST.get("sizeC")
+            elif p.categories =="Shoes":
+                p.size = request.POST.get("sizeS")
+            elif p.categories =="Accesories":
+                p.size = request.POST.get("sizeA")
+            p.price = request.POST.get("price")
+            p.condition = request.POST.get("condition")
+            p.country = request.POST.get("country")
+            p.color1 = request.POST.get("color1")
+            p.color2 = request.POST.get("color2")
+            p.save()
+            img = request.FILES["image"]
+            unit= img.name.split(".")[-1]
+            fileSystemStorage=FileSystemStorage()
+            fileSystemStorage.save(str(p.id)+"."+ unit,img)
+
+            p.image = str(p.id)+"."+ unit
+            p.save()
+            request.user.products.add(p)
+            
+        except:
+            response = redirect('/somethingwentwrong/')
+            return response
+
+        return redirect(reverse('succes',args=[product]))
+def WantedCharge(request):
+    
+    if  request.method == 'POST':
+        try:
+            print('DATa:',request.POST)
+            product=request.POST['name']
+            customer = stripe.Customer.create(email=request.user.email,name=request.user.first_name,description=request.POST['name'],source=request.POST['stripeToken'])
+            charge = stripe.Charge.create(customer=customer,amount=100,currency='eur')
+            name=request.POST.get("name")
+            w=Wanted(name=name)
+
+            w.categories = request.POST.get("category")
+
+            if w.categories =="Clothes":
+                w.size = request.POST.get("sizeC")
+            elif w.categories =="Shoes":
+                w.size = request.POST.get("sizeS")
+            elif w.categories =="Accesories":
+                w.size = request.POST.get("sizeA")
+            w.maxprice = request.POST.get("price")
+            w.country = request.POST.get("country")
+            w.color1 = request.POST.get("color1")
+            w.color2 = request.POST.get("color2")
+            w.save()
+
+            if request.FILES.get('image'):
+                img = request.FILES["image"]
+                unit= img.name.split(".")[-1]
+                fileSystemStorage=FileSystemStorage()
+                fileSystemStorage.save("w"+str(w.id)+"."+ unit,img)
+
+                w.image = "w"+str(w.id)+"."+ unit
+                w.save()
+            request.user.wanted.add(w)
+            
+        except:
+            error = redirect('/somethingwentwrong/')
+            return error
+
+        return redirect(reverse('succes',args=[product]))
+def succesMsg(request, args):
+    product=args
+    return render(request, 'main/succes.html',{'product':product})
+def index(request):
+    
+    return render(request, 'main/index.html',{})
+def somethingwentwrong(request):
+    
+    return render(request, 'main/somethingwentwrong.html',{})
 def home(response):
 
 
@@ -295,10 +385,10 @@ def userproducts(response):
 
         if response.POST.get("delete"):
             itemid=response.POST.get("delete")
-            pd=Products.objects.get(id=int(itemid))
-            imageurl=pd.image.url
-            pd.delete()
-            os.remove('static'+imageurl)
+            pr=Products.objects.get(id=int(itemid))
+            
+            pr.delete()
+            
 
             # pd.delete()
         else:
@@ -323,35 +413,10 @@ def addProducts(response):
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
     shoessize=["35","36","37","38","39","40","41","42","43","44","45"]
     clothessize=["XXS","XS","S","M","L","XL","XXL","3XL"]
-    if response.method =="POST":
+    # if response.method =="POST":
 
-        if response.POST.get("create"):
-            name=response.POST.get("name")
-            p=Products(name=name)
-            p.description = response.POST.get("description")
-            p.categories = response.POST.get("category")
-
-            if p.categories =="Clothes":
-                p.size = response.POST.get("sizeC")
-            elif p.categories =="Shoes":
-                p.size = response.POST.get("sizeS")
-            elif p.categories =="Accesories":
-                p.size = response.POST.get("sizeA")
-            p.price = response.POST.get("price")
-            p.condition = response.POST.get("condition")
-            p.country = response.POST.get("country")
-            p.color1 = response.POST.get("color1")
-            p.color2 = response.POST.get("color2")
-            p.save()
-            img = response.FILES["image"]
-            unit= img.name.split(".")[-1]
-            fileSystemStorage=FileSystemStorage()
-            fileSystemStorage.save(str(p.id)+"."+ unit,img)
-
-            p.image = str(p.id)+"."+ unit
-            p.save()
-            response.user.products.add(p)
-
+    #     if response.POST.get("create"):
+            
 
 
     return render(response, "main/products/addProducts.html", {"eu":eu_countries,"shoessize":shoessize,"clothessize":clothessize})
@@ -566,7 +631,7 @@ def wanted(request, ):
                 wd=wd.filter(maxprice__lte=pricex)
                 choicep="up to "+str(pricex)+"€"
     paginator = Paginator(wd, 30) 
-    count=pd.count()
+    count=wd.count()
     page_number = request.GET.get('page')
     wd = paginator.get_page(page_number)
     next2=wd.number + 2
@@ -580,10 +645,9 @@ def userwanted(response):
             itemid=response.POST.get("delete")
             pd=Wanted.objects.get(id=int(itemid))
 
-            imageurl=pd.image.url
+            
             pd.delete()
-            if pd.image.url != '/images/blessedimg.jpeg':
-                os.remove('static'+imageurl)
+            
 
         else:
             for item in wd:
@@ -681,38 +745,7 @@ def addWanted(response):
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
     shoessize=["35","36","37","38","39","40","41","42","43","44","45"]
     clothessize=["XXS","XS","S","M","L","XL","XXL","3XL"]
-    if response.method =="POST":
-
-        if response.POST.get("create"):
-            name=response.POST.get("name")
-            w=Wanted(name=name)
-
-            w.categories = response.POST.get("category")
-
-            if w.categories =="Clothes":
-                w.size = response.POST.get("sizeC")
-            elif w.categories =="Shoes":
-                w.size = response.POST.get("sizeS")
-            elif w.categories =="Accesories":
-                w.size = response.POST.get("sizeA")
-            w.maxprice = response.POST.get("price")
-            w.country = response.POST.get("country")
-            w.color1 = response.POST.get("color1")
-            w.color2 = response.POST.get("color2")
-            w.save()
-
-            if response.FILES.get('image'):
-                img = response.FILES["image"]
-                unit= img.name.split(".")[-1]
-                fileSystemStorage=FileSystemStorage()
-                fileSystemStorage.save("w"+str(w.id)+"."+ unit,img)
-
-                w.image = "w"+str(w.id)+"."+ unit
-                w.save()
-            response.user.wanted.add(w)
-
-
-
+    
     return render(response, "main/wanted/addWanted.html", {"eu":eu_countries,"shoessize":shoessize,"clothessize":clothessize})
 def wantedLook(response, id):
     if response.user.is_authenticated == False:

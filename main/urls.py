@@ -13,6 +13,11 @@ urlpatterns = [
     path("about-us/", views.about_us, name="about_us"),
     path("contact/", views.contact, name="contact"),
     path("FAQ/", views.FAQ, name="FAQ"),
+    path("productcharge/", views.ProductCharge, name="ProductCharge"),
+     path("wantedcharge/", views.WantedCharge, name="WantedCharge"),
+    path("index/", views.index, name="index"),
+    path("somethingwentwrong/", views.somethingwentwrong, name="somethingwentwrong"),
+    path("succes/<str:args>/", views.succesMsg, name="succes"),
     #products
     path("products/", views.products, name="products"),
     path("myproducts/", views.userproducts, name="myproducts"),

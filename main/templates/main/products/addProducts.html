@@ -15,11 +15,12 @@
     name="keywords"
     content="Blessed, blessed, resell,market, hypebeast,shoes,clothes,accesories"
   />
-</head>
-<h1>Add products</h1>
-<form method="post" action="" enctype="multipart/form-data">
+
+</head><div class="center"><h1>Add products</h1></div>
+
+<form method="post" action="{% url 'ProductCharge' %}" enctype="multipart/form-data" id="payment-form">
   {% csrf_token %}
-  <div class="inputs">
+  <div class="inputs" id="inputs">
     <input
       type="text"
       name="name"
@@ -124,6 +125,15 @@
       </div>
     </div>
   </div>
+  <div class="form-row">
+    <label for="card-element"> Credit or debit card </label>
+    <div id="card-element">
+      <!-- A Stripe Element will be inserted here. -->
+    </div>
+
+    <!-- Used to display Element errors. -->
+    <div id="card-errors" role="alert"></div>
+  </div>
   <button type="submit" name="create" value="create" class="submit">
     Create New
   </button>
@@ -157,6 +167,9 @@
     <div class="bg-box" id="gradient3"></div>
   </div>
 </div>
+
+<script src="https://js.stripe.com/v3/"></script>
 <script src="{% static '/js/addProducts.js' %}"></script>
-<script src="{% static '/js/reload.js' %}"></script>
+
+
 {% endblock %}

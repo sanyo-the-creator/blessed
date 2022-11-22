@@ -200,7 +200,7 @@
     {%endif%} {% endfor %}
   </div>
 </form>
-<br />{{count}}<br />
+<br /><br />
 {% if count == 0 %}
 <p>Nothing Match</p>
 {% endif %}
@@ -223,41 +223,44 @@
 </div>
 {% if pd.paginator.num_pages > 1%}
 <div>
-{% if pd.number > 1 %}
-<a href="?page={{ pd.previous_page_number }}"><button style="background-color: dodgerblue;">&laquo;</button></a>
-{% else%}
-<a href=""><button >&laquo;</button></a>
-{% endif %}
-{% if pd.has_previous %}
-<a href="?page=1"><button> 1</button></a>
-{% endif %} 
-{% if previous2 > 1 and pd.number ==  pd.paginator.num_pages%}
-<a href="?page={{ previous2 }}"><button >{{ previous2 }}</button></a>
-{% endif %}
+  {% if pd.number > 1 %}
+  <a href="?page={{ pd.previous_page_number }}"
+    ><button style="background-color: dodgerblue">&laquo;</button></a
+  >
+  {% else%}
+  <a href=""><button>&laquo;</button></a>
+  {% endif %} {% if pd.has_previous %}
+  <a href="?page=1"><button>1</button></a>
+  {% endif %} {% if previous2 > 1 and pd.number == pd.paginator.num_pages%}
+  <a href="?page={{ previous2 }}"><button>{{ previous2 }}</button></a>
+  {% endif %} {% if pd.number > 2 %}
+  <a href="?page={{ pd.previous_page_number }}"
+    ><button>{{ pd.previous_page_number }}</button></a
+  >
+  {% endif %}
 
-{% if pd.number > 2 %}
-<a href="?page={{ pd.previous_page_number }}"><button >{{ pd.previous_page_number }}</button></a>
-{% endif %}
+  <span class="current">
+    <button style="background-color: dodgerblue">{{ pd.number }}</button>
+  </span>
 
-<span class="current"> <button style="background-color: dodgerblue;"> {{ pd.number }} </button> </span>
-
-{% if pd.has_next %} 
-{% if pd.next_page_number != pd.paginator.num_pages%}
-<a href="?page={{ pd.next_page_number }}"><button>{{pd.next_page_number}}</button></a>
-{%endif%}
-{% if next2 < pd.paginator.num_pages and pd.number == 1%}
-<a href="?page={{ next2 }}"><button>{{next2}}</button></a>
-{%endif%}  
-<!-- <button>...</button> -->
-<a href="?page={{ pd.paginator.num_pages }}"
-  ><button>{{ pd.paginator.num_pages }}</button></a
->
-{% endif %}
-{% if pd.number != pd.paginator.num_pages%}
-<a href="?page={{ pd.next_page_number }}" ><button style="background-color: dodgerblue;">&raquo;</button></a>
-{%else%}
-<a href=""><button>&raquo;</button></a>
-{%endif%}
+  {% if pd.has_next %} {% if pd.next_page_number != pd.paginator.num_pages%}
+  <a href="?page={{ pd.next_page_number }}"
+    ><button>{{pd.next_page_number}}</button></a
+  >
+  {%endif%} {% if next2 < pd.paginator.num_pages and pd.number == 1%}
+  <a href="?page={{ next2 }}"><button>{{next2}}</button></a>
+  {%endif%}
+  <!-- <button>...</button> -->
+  <a href="?page={{ pd.paginator.num_pages }}"
+    ><button>{{ pd.paginator.num_pages }}</button></a
+  >
+  {% endif %} {% if pd.number != pd.paginator.num_pages%}
+  <a href="?page={{ pd.next_page_number }}"
+    ><button style="background-color: dodgerblue">&raquo;</button></a
+  >
+  {%else%}
+  <a href=""><button>&raquo;</button></a>
+  {%endif%}
 </div>
 {%endif%}
 <script src="{% static '/js/filterproducts.js' %}"></script>

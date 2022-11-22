@@ -3,6 +3,9 @@
     padding: 0;
     font-family: "SuisseIntl-Medium",sans-serif;
 }
+.StripeElement{
+    width: 500px;
+}
 body{
     overflow-x: hidden;
 }
@@ -20,7 +23,9 @@ body {
     border: none;
 }
 
-
+.center {
+    text-align: center;
+}
 
 input, select { 
     align-self: center;
