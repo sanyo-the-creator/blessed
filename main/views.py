@@ -11,7 +11,8 @@ import os
 from django.db.models import Q
 from django.urls import reverse
 import stripe
-stripe.api_key="sk_test_51M6dQHLUoQwS73Adxh3Dat5mqvFBTo2V33xOyuHTvWR3MIEqBGNB8DSIn5OzOfIRdJoMpW3ytN3ai6Qhnsx89EH000z61ztooP"
+from django.conf import settings
+stripe.api_key=settings.STRIPE_SECRET_KEY
 
 def ProductCharge(request):
     
@@ -92,12 +93,38 @@ def WantedCharge(request):
             return error
 
         return redirect(reverse('succes',args=[product]))
+def DonationCharge(request):
+    
+    if  request.method == 'POST':
+        amount=request.POST['price']
+        
+        amount=round(float(amount), 2)
+        
+        amount=int(amount*100)
+        name=request.POST.get("name")
+        if request.POST['email']:
+            print('DATa:',request.POST)
+            customer = stripe.Customer.create(email=request.POST['email'],name=name,source=request.POST['stripeToken'])
+            charge = stripe.Charge.create(customer=customer,amount=amount,currency='eur')
+            
+            email=request.POST['email']
+            message="Dear "+ name + ',\n' + "Thank you very much for your donation, we really appreciate that. "'\n'+'Blessed Store'
+        
+            send_mail('Thank you for your donation',message,'blessedstore.sk@gmail.com',[email])
+
+        else:
+            print('DATa:',request.POST)
+            
+            customer = stripe.Customer.create(name=name,source=request.POST['stripeToken'])
+            charge = stripe.Charge.create(customer=customer,amount=amount,currency='eur')
+
+        return redirect(reverse('donation',args=[name]))
 def succesMsg(request, args):
     product=args
     return render(request, 'main/succes.html',{'product':product})
-def index(request):
-    
-    return render(request, 'main/index.html',{})
+def DonationMsg(request, args):
+    name=args
+    return render(request, 'main/donation.html',{'name':name})
 def somethingwentwrong(request):
     
     return render(request, 'main/somethingwentwrong.html',{})
@@ -116,8 +143,11 @@ def home(response):
 
     return render(response, "main/home.html", {"ls":ls,"wd":wd})
 def about_us(response):
-    
-    return render(response, "main/about_us.html", {})
+    if response.user.is_authenticated == False:
+        navbar="False"
+    else:
+        navbar="True"
+    return render(response, "main/about_us.html", {"navbar":navbar})
 def contact(request):
     if request.method == "POST":
         name=request.POST.get("name")
@@ -159,7 +189,9 @@ def SearchResultsView(request):
     choicep="Price up to €"
     pricex=""
     categories=["Shoes","Clothes","Accesories"]
-    sizes=["XXS","XS","S","M","L","XL","XXL","3XL","35","36","37","38","39","40","41","42","43","44","45"]
+    shoessizes=["35","35,5","36","36,5","37","37,5","38","38,5","39","39,5","40","40,5","41","41,5","42","42,5","43","43,5","44","44,5","45","45,5","46","46,5","47"]
+    clothessizes=["XXS","XS","S","M","L","XL","XXL","3XL"]
+    sizes=[]
     conditions=["New","9/10","8/10","7/10","6/10","5/10","4/10","3/10","2/10","1/10"]
     eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
@@ -223,7 +255,11 @@ def SearchResultsView(request):
         if request.POST.getlist("category"):
             category=="choosen"
             c=request.POST.getlist("category")
-
+            if "Clothes" in c:
+                sizes=sizes+clothessizes
+            if "Shoes" in c:
+                sizes=sizes+shoessizes
+            
             if size == "choosen" or condition=="choosen" or country=="choosen":
                 pd=pd.filter(categories__in=c)
             else:
@@ -231,6 +267,7 @@ def SearchResultsView(request):
 
     else:
         # ,price__lte=100
+        sizes=shoessizes+clothessizes
         pd =Products.objects.all().order_by('-id').filter(Q(name__icontains=name),active = True).exclude(user=request.user)
 
         choice="Latest products"
@@ -280,7 +317,9 @@ def products(request ):
     choicep="Price up to €"
     pricex=""
     categories=["Shoes","Clothes","Accesories"]
-    sizes=["XXS","XS","S","M","L","XL","XXL","3XL","35","36","37","38","39","40","41","42","43","44","45"]
+    shoessizes=["35","35,5","36","36,5","37","37,5","38","38,5","39","39,5","40","40,5","41","41,5","42","42,5","43","43,5","44","44,5","45","45,5","46","46,5","47"]
+    clothessizes=["XXS","XS","S","M","L","XL","XXL","3XL"]
+    sizes=[]
     conditions=["New","9/10","8/10","7/10","6/10","5/10","4/10","3/10","2/10","1/10"]
     eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
@@ -340,16 +379,19 @@ def products(request ):
         if request.POST.getlist("category"):
             category=="choosen"
             c=request.POST.getlist("category")
-
+            if "Clothes" in c:
+                sizes=sizes+clothessizes
+            if "Shoes" in c:
+                sizes=sizes+shoessizes
             if size == "choosen" or condition=="choosen" or country=="choosen":
                 pd=pd.filter(categories__in=c)
             else:
                 pd =Products.objects.all().order_by(order).filter(active = True,categories__in=c).exclude(user=request.user)
 
     else:
-        # ,price__lte=100
+        
         pd =Products.objects.all().order_by('-id').filter(active = True).exclude(user=request.user)
-
+        sizes=shoessizes+clothessizes
         choice="Latest products"
         order="-id"
     if request.POST.get("pricemax"):
@@ -411,7 +453,7 @@ def addProducts(response):
         return response
     eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
-    shoessize=["35","36","37","38","39","40","41","42","43","44","45"]
+    shoessize=["35","35,5","36","36,5","37","37,5","38","38,5","39","39,5","40","40,5","41","41,5","42","42,5","43","43,5","44","44,5","45","45,5","46","46,5","47"]
     clothessize=["XXS","XS","S","M","L","XL","XXL","3XL"]
     # if response.method =="POST":
 
@@ -442,7 +484,9 @@ def UsersProducts(request,id):
     choicep="Price up to €"
     pricex=""
     categories=["Shoes","Clothes","Accesories"]
-    sizes=["XXS","XS","S","M","L","XL","XXL","3XL","35","36","37","38","39","40","41","42","43","44","45"]
+    shoessizes=["35","35,5","36","36,5","37","37,5","38","38,5","39","39,5","40","40,5","41","41,5","42","42,5","43","43,5","44","44,5","45","45,5","46","46,5","47"]
+    clothessizes=["XXS","XS","S","M","L","XL","XXL","3XL"]
+    sizes=[]
     conditions=["New","9/10","8/10","7/10","6/10","5/10","4/10","3/10","2/10","1/10"]
     eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
@@ -486,7 +530,10 @@ def UsersProducts(request,id):
         if request.POST.getlist("category"):
             category=="choosen"
             c=request.POST.getlist("category")
-
+            if "Clothes" in c:
+                sizes=sizes+clothessizes
+            if "Shoes" in c:
+                sizes=sizes+shoessizes
             if size == "choosen" or condition=="choosen" or country=="choosen":
                 pd=pd.filter(categories__in=c)
             else:
@@ -495,7 +542,7 @@ def UsersProducts(request,id):
     else:
         # ,price__lte=100
         pd =Products.objects.all().order_by('-id').filter(active = True,user=user)
-
+        sizes=shoessizes+clothessizes
         choice="Latest products"
         order="-id"
     if request.POST.get("pricemax"):
@@ -556,8 +603,9 @@ def wanted(request, ):
     choicep="Price up to €"
     pricex=""
     categories=["Shoes","Clothes","Accesories"]
-    sizes=["XXS","XS","S","M","L","XL","XXL","3XL","35","36","37","38","39","40","41","42","43","44","45"]
-
+    shoessizes=["35","35,5","36","36,5","37","37,5","38","38,5","39","39,5","40","40,5","41","41,5","42","42,5","43","43,5","44","44,5","45","45,5","46","46,5","47"]
+    clothessizes=["XXS","XS","S","M","L","XL","XXL","3XL"]
+    sizes=[]
     eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
     if request.POST.get("sizecheck"):
@@ -603,7 +651,10 @@ def wanted(request, ):
         if request.POST.getlist("category"):
             category=="choosen"
             c=request.POST.getlist("category")
-
+            if "Clothes" in c:
+                sizes=sizes+clothessizes
+            if "Shoes" in c:
+                sizes=sizes+shoessizes
             if size == "choosen" or country=="choosen":
                 wd=wd.filter(categories__in=c)
             else:
@@ -611,7 +662,7 @@ def wanted(request, ):
     else:
         # ,price__lte=100
         wd =Wanted.objects.all().order_by('-id').filter(active = True).exclude(user=request.user)
-
+        sizes=shoessizes+clothessizes
         choice="Latest products"
         order="-id"
     if request.POST.get("pricemax"):
@@ -674,8 +725,9 @@ def UsersWanted(request,id):
     choicep="Price up to €"
     pricex=""
     categories=["Shoes","Clothes","Accesories"]
-    sizes=["XXS","XS","S","M","L","XL","XXL","3XL","35","36","37","38","39","40","41","42","43","44","45"]
-
+    shoessizes=["35","35,5","36","36,5","37","37,5","38","38,5","39","39,5","40","40,5","41","41,5","42","42,5","43","43,5","44","44,5","45","45,5","46","46,5","47"]
+    clothessizes=["XXS","XS","S","M","L","XL","XXL","3XL"]
+    sizes=[]
     eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
     if request.POST.get("order_by"):
@@ -709,15 +761,19 @@ def UsersWanted(request,id):
         if request.POST.getlist("category"):
             category=="choosen"
             c=request.POST.getlist("category")
-
+            if "Clothes" in c:
+                sizes=sizes+clothessizes
+            if "Shoes" in c:
+                sizes=sizes+shoessizes
             if size == "choosen" or country=="choosen":
                 wd=wd.filter(categories__in=c)
             else:
                 wd =Wanted.objects.all().order_by(order).filter(active = True,categories__in=c,user=user)
     else:
         # ,price__lte=100
+        sizes=shoessizes+clothessizes
         wd =Wanted.objects.all().order_by('-id').filter(active = True,user=user)
-
+        sizes=shoessizes+clothessizes
         choice="Latest products"
         order="-id"
     if request.POST.get("pricemax"):
@@ -743,7 +799,7 @@ def addWanted(response):
         return response
     eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
-    shoessize=["35","36","37","38","39","40","41","42","43","44","45"]
+    shoessize=["35","35,5","36","36,5","37","37,5","38","38,5","39","39,5","40","40,5","41","41,5","42","42,5","43","43,5","44","44,5","45","45,5","46","46,5","47"]
     clothessize=["XXS","XS","S","M","L","XL","XXL","3XL"]
     
     return render(response, "main/wanted/addWanted.html", {"eu":eu_countries,"shoessize":shoessize,"clothessize":clothessize})
@@ -767,8 +823,9 @@ def wantedEdit(response, id):
         return response
     edit=str(id).replace("edit-w", "")
     pd =Wanted.objects.get(id=int(edit))
-    shoessize=["35","36","37","38","39","40","41","42","43","44","45"]
+    shoessize=["35","35,5","36","36,5","37","37,5","38","38,5","39","39,5","40","40,5","41","41,5","42","42,5","43","43,5","44","44,5","45","45,5","46","46,5","47"]
     clothessize=["XXS","XS","S","M","L","XL","XXL","3XL"]
+    
     if response.method =="POST":
         if response.POST.get("change"):
             if pd.categories == "Shoes":
@@ -807,7 +864,7 @@ def shoes(request):
     z=[]
     choicep="Price up to €"
     pricex=""
-    sizes=["35","36","37","38","39","40","41","42","43","44","45"]
+    sizes=["35","35,5","36","36,5","37","37,5","38","38,5","39","39,5","40","40,5","41","41,5","42","42,5","43","43,5","44","44,5","45","45,5","46","46,5","47"]
     conditions=["New","9/10","8/10","7/10","6/10","5/10","4/10","3/10","2/10","1/10"]
     eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]

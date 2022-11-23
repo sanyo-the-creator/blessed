@@ -149,7 +149,8 @@ MEDIA_URL = 'images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')  
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
-
+STRIPE_SECRET_KEY="sk_test_51M6dQHLUoQwS73Adxh3Dat5mqvFBTo2V33xOyuHTvWR3MIEqBGNB8DSIn5OzOfIRdJoMpW3ytN3ai6Qhnsx89EH000z61ztooP"
+STRIPE_PUBLIC_KEY="pk_test_51M6dQHLUoQwS73AdpvDRcFzQEhEjrZNLv6nEKvMINOuQeQBodB1w8IqyDPNcbVlm4IwkdA0dh7BPtGs2t0tA1Mi300R9aNf7kJ"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 

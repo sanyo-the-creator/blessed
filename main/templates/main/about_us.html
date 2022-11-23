@@ -1,4 +1,4 @@
-{% block content %}
+{% extends 'main/navbar.html' %} {% block content %}
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,4 +16,91 @@
     content="Blessed, blessed, resell,market, hypebeast,shoes,clothes,accesories"
   />
 </head>
+
+<body>
+  Optional Donation(€)
+  <form action="{% url 'DonationCharge' %}" method="post" id="payment-form">
+    {% csrf_token %}
+
+    <input
+      type="number"
+      name="price"
+      step="0.01"
+      placeholder="Donation in €"
+      min="0.50"
+      id="priceinput"
+      required
+    />
+    <input
+      type="text"
+      name="name"
+      placeholder="Name of Donator"
+      maxlength="30"
+    />
+    <input
+      type="email"
+      name="email"
+      placeholder="Optional Mail of Donator"
+      id="nameinput"
+    />
+    <div class="form-row">
+      <label for="card-element"> Credit or debit card </label>
+      <div id="card-element">
+        <!-- A Stripe Element will be inserted here. -->
+      </div>
+
+      <!-- Used to display Element errors. -->
+      <div id="card-errors" role="alert"></div>
+    </div>
+
+    <button>Submit Payment</button>
+  </form>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    const stripe = Stripe(
+      "pk_test_51M6dQHLUoQwS73AdpvDRcFzQEhEjrZNLv6nEKvMINOuQeQBodB1w8IqyDPNcbVlm4IwkdA0dh7BPtGs2t0tA1Mi300R9aNf7kJ"
+    );
+    const elements = stripe.elements();
+    const style = {
+      base: {
+        // Add your base input styles here. For example:
+        fontSize: "16px",
+        color: "#32325d",
+      },
+    };
+
+    // Create an instance of the card Element.
+    const card = elements.create("card", { style });
+
+    // Add an instance of the card Element into the `card-element` <div>.
+    card.mount("#card-element");
+    const form = document.getElementById("payment-form");
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const { token, error } = await stripe.createToken(card);
+
+      if (error) {
+        // Inform the customer that there was an error.
+        const errorElement = document.getElementById("card-errors");
+        errorElement.textContent = error.message;
+      } else {
+        // Send the token to your server.
+        stripeTokenHandler(token);
+      }
+    });
+    const stripeTokenHandler = (token) => {
+      // Insert the token ID into the form so it gets submitted to the server
+      const form = document.getElementById("payment-form");
+      const hiddenInput = document.createElement("input");
+      hiddenInput.setAttribute("type", "hidden");
+      hiddenInput.setAttribute("name", "stripeToken");
+      hiddenInput.setAttribute("value", token.id);
+      form.appendChild(hiddenInput);
+
+      // Submit the form
+      form.submit();
+    };
+  </script>
+</body>
 {% endblock %}
