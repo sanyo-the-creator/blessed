@@ -1,23 +1,9 @@
 {% extends 'main/navbar.html' %} {% load static %} {% block content %}
 <head>
   <link rel="stylesheet" href=" {% static '/css/products.css' %} " />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta charset="UTF-8" />
-  <meta
-    name="description"
-    property="og:description"
-    content="Blessed is website for selling or buying hype shoes, clothes and accesories"
-  />
-  <meta property="og:title" content="Wanted Products - Blessed" />
-  <title>Wanted Products - Blessed</title>
-  <meta name="author" content="Jerguš Sňahničan, Alexander Poole" />
-  <meta
-    name="keywords"
-    content="Blessed, blessed, resell,market, hypebeast,shoes,clothes,accesories"
-  />
 </head>
 <h2>Wanted:</h2>
-<form method="post" action="/wanted/">
+<form method="post" action="">
   {% csrf_token %}
   <select name="order_by" id="order_by" onchange="this.form.submit()">
     <option
@@ -166,7 +152,7 @@
   </div>
 </form>
 <br /><br />
-{% if count == 0 %}
+{% if wd.count == 0 %}
 <p>Nothing Match</p>
 {% endif %}
 <div class="container">
@@ -186,48 +172,6 @@
     {% endfor %}
   </ul>
 </div>
-{% if wd.paginator.num_pages > 1%}
-<div>
-  {% if wd.number > 1 %}
-  <a href="?page={{ wd.previous_page_number }}"
-    ><button style="background-color: dodgerblue">&laquo;</button></a
-  >
-  {% else%}
-  <a href=""><button>&laquo;</button></a>
-  {% endif %} {% if wd.has_previous %}
-  <a href="?page=1"><button>1</button></a>
-  {% endif %} {% if previous2 > 1 and wd.number == wd.paginator.num_pages%}
-  <a href="?page={{ previous2 }}"><button>{{ previous2 }}</button></a>
-  {% endif %} {% if wd.number > 2 %}
-  <a href="?page={{ wd.previous_page_number }}"
-    ><button>{{ wd.previous_page_number }}</button></a
-  >
-  {% endif %}
-
-  <span class="current">
-    <button style="background-color: dodgerblue">{{ wd.number }}</button>
-  </span>
-
-  {% if wd.has_next %} {% if wd.next_page_number != wd.paginator.num_pages%}
-  <a href="?page={{ wd.next_page_number }}"
-    ><button>{{wd.next_page_number}}</button></a
-  >
-  {%endif%} {% if next2 < wd.paginator.num_pages and wd.number == 1%}
-  <a href="?page={{ next2 }}"><button>{{next2}}</button></a>
-  {%endif%}
-  <!-- <button>...</button> -->
-  <a href="?page={{ wd.paginator.num_pages }}"
-    ><button>{{ wd.paginator.num_pages }}</button></a
-  >
-  {% endif %} {% if wd.number != wd.paginator.num_pages%}
-  <a href="?page={{ wd.next_page_number }}"
-    ><button style="background-color: dodgerblue">&raquo;</button></a
-  >
-  {%else%}
-  <a href=""><button>&raquo;</button></a>
-  {%endif%}
-</div>
-{%endif%}
 <script src="{% static '/js/filterwanted.js' %}"></script>
 <!-- <script src="{% static '/js/reload.js' %}">
 </script> -->

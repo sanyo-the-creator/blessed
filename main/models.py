@@ -3,7 +3,6 @@ from statistics import quantiles
 from django.contrib.auth.models import User
 from django.db import models
 from django_mysql.models import ListCharField
-from django.urls import reverse
 # Create your models here.
 # me
 
@@ -30,13 +29,9 @@ class Products(models.Model):
     # )
     
 
-    class Meta:  
-        verbose_name_plural = 'Products'
-    def __str__(self):
-        return self.name
-    def get_absolute_url(self):
-        return reverse("productLook", args=[str(self.id)])
 
+    def _str_(self):
+        return self.name
 
 class Wanted(models.Model):
     user = models.ForeignKey(
@@ -53,13 +48,10 @@ class Wanted(models.Model):
     
     
 
-    class Meta:  
-        verbose_name_plural = 'Wanted'
-    def __str__(self):
+
+    def _str_(self):
         return self.name
-    def get_absolute_url(self):
-        return reverse("wantedLook", args=[str(self.id)])
-    
+
 
 
 

@@ -9,13 +9,14 @@
     padding-right: 2%;
     box-sizing: border-box;
     max-height: 100px;
+    background-color: white;
 }
 
 .navbar{
     height: 100px;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: center; 
 }
 
 .nav-logo{
@@ -24,28 +25,20 @@
     margin: 0px 0px;
 }
 
-nav{
+.pc-nav{
     flex: 1;
     text-align: right; 
 }
 
-nav ul {
-    padding-right: 25px;
-}
-
-nav ul li{
-    list-style: none;
+.pc-nav a{
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
     display: inline-block;
     margin-right: 25px;
 }
 
-nav ul li a{
-    text-decoration: none;
-    color: #000;
-    font-size: 14px;
-}
-
-nav ul li a:hover{
+.pc-nav a:hover{
     color: rgb(201, 25, 201);
 }
 
@@ -65,7 +58,6 @@ nav ul li a:hover{
 .search {
     width: 50%;
     position: relative;
-    margin-left: 25px;
     display: flex;
     flex-direction: row;
 }
@@ -96,20 +88,29 @@ nav ul li a:hover{
     border-left: 1px solid black;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-
 }
 
 .search-mobile {
     display: none;
 }
 
-#menu {
+.mobile-nav {
     display: none;
 }
 
-@media (max-width: 1054px) {
+.m-search {
+    display: none;
+}
+@media (max-width: 991px) {
+    .pc-nav {
+        display: none;
+    }
+
     .navcontainer {
         padding: 0;
+        margin: 0;
+        z-index: 5;
+        background-color: white;
     }
 
     .navbar{
@@ -129,25 +130,121 @@ nav ul li a:hover{
         display: none;
     }
 
+    .log-out-mobile {
+        background-color: white;
+        border: none;
+        color: black;
+        width: 120px;
+        height: 35px;
+        font-size: 20px;
+        position: absolute;
+        left: 50%;
+        top: 80%;
+        transform: translateX(-50%);
+    }
+
     .search {
-        padding-left: 18px;
-        height: 30px;
-        width: 70%;
-        border-radius: 10px;
         display: none;
+    }
+
+    .hamburger {
+        margin-left: 15px;
+        position: absolute;
+        width: 30px;
+        display: block;
+        background: none;
+        border: none;
+        outline: none;
+        appearance: none;
+        cursor: pointer;
+        z-index: 99;
+    }
+    
+    .hamburger .bar , .hamburger:after , .hamburger:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 5px;
+        background-color: black;
+        margin: 6px 0px;
+        transition: 0.4s;
+    }
+    
+    .hamburger.is-active:before {
+        transform: rotate(-45deg) translate(-8px, 6px);
+        background-color: white;
+    }
+    
+    .hamburger.is-active:after {
+        transform: rotate(45deg) translate(-10px, -8px);
+        background-color: white;
+    }
+    
+    .hamburger.is-active .bar {
+        opacity: 0;
+    }
+    
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 70%;
+        height: 100vh;
+        display: block;
+        z-index: 98;
+        background-color: black;
+        padding-top: 120px;
+        transition: 0.4s;
+    }
+    
+    .mobile-nav.is-active {
+        left: 0;
+    }
+    
+    .mobile-nav a {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        padding: 50px;
+        margin-top: 50px;
+        font-size: 25px;
+    }
+
+    .m-search {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 100%;
+        height: 90px;
+        background-color: white;
+        width: 65%;
+    }
+
+    .m-search-field {
+        height: 40px;
+        width: 100%;
+        display: block;
+        border: 1px solid black;
+        border-radius: 15px;
     }
 
     .search-mobile {
         display: block;
         background-color: transparent;
-        height: 25px;
+        height: 30px;
         border: none;
         position: absolute;
         right: 20px;
-        top: 35px;
+        top: 30px;
     }
 
-    ul {
-        display: none;
+    .cancel {
+        background-color: transparent;
+        height: 30px;
+        border: none;
+        position: absolute;
+        right: 20px;
+        top: 30px;
     }
 }

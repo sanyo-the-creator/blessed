@@ -12,7 +12,7 @@ class RegisterForm(UserCreationForm):
     
     username = forms.EmailField(max_length=254, required=True,label="Mail")
     first_name.widget.attrs.update( placeholder='First Name & Last Name')
-    last_name.widget.attrs.update( placeholder='@')
+    last_name.widget.attrs.update( placeholder='@Instagram')
     username.widget.attrs.update( placeholder='Unique Mail')
     password1= forms.CharField(widget=forms.PasswordInput, required=True, label="Password")
     password2 = forms.CharField(widget=forms.PasswordInput, required=True, label="Password Confirmation")

@@ -1,19 +1,96 @@
 *,
 *:before,
 *:after {
-  
+  font-family: sans-serif;
   box-sizing: border-box;
 }
 
-body {
+/* body {
   background-image: url("../images/13.png");
   overflow: hidden;
+} */
+
+.logo {
+  width: 100px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.from-group {
-    position: absolute;
-    left: 40%;
-    top: 45%;
+
+label {
+  display: none;
 }
+
+p {
+  margin-bottom: 0px;
+}
+
+.instagram {
+  position: absolute;
+  width: 50px;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+form {
+  position: absolute;
+  grid-row-gap: 10%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  width: 20%;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+input {
+  padding-left: 10px;
+  width: 100%;
+  height: 35px;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.login-button {
+  margin-top: 25px;
+  height: 35px;
+  width: 120px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+}
+
+a {
+  color: purple;
+}
+
+/* js */
+
+
 .bubble {
   z-index: -1;
   position: absolute;
@@ -31,12 +108,14 @@ body {
 }
 
 .bubble--bust {
-    z-index: -1;
-  transform: scale(1.8);}
-  .from-group .register {
-    color: black;
-  }
-  .from-group .register:hover {
-    
-    cursor: default;
-  }
+  z-index: -1;
+  transform: scale(1.8);
+}
+
+.from-group .register {
+  color: black;
+}
+
+.from-group .register:hover {
+  cursor: default;
+}

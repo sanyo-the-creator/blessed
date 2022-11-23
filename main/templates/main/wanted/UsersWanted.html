@@ -1,38 +1,21 @@
 {% extends 'main/navbar.html' %} {% load static %} {% block content %}
 <head>
   <link rel="stylesheet" href=" {% static '/css/UsersWanted.css' %} " />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta charset="UTF-8" />
-  <meta
-    name="description"
-    property="og:description"
-    content="Blessed is website for selling or buying hype shoes, clothes and accesories"
-  />
-  <meta property="og:title" content="Profile - Blessed" />
-  <title>Profile - Blessed</title>
-  <meta name="author" content="Jerguš Sňahničan, Alexander Poole" />
-  <meta
-    name="keywords"
-    content="Blessed, blessed, resell,market, hypebeast,shoes,clothes,accesories"
-  />
 </head>
 <div class="contact">
-  <h2>{{user.first_name}}:</h2>
-  <br />
-  <h3>Contact:</h3>
-  <div class="mailig">
-    <a href="https://www.instagram.com/{{ig}}/"><p>Instagram: @{{ig}}</p></a>
-    <p>Mail: {{user.username}}</p>
-  </div>
+    
+    <h2>{{user.first_name}}:</h2>
+    <br/>
+    <h3>Contact:</h3>
+    <div class="mailig">
+        <a href="https://www.instagram.com/{{ig}}/"><p>Instagram: @{{ig}}</p></a>
+        <p>Mail:  {{user.username}}</p>
+    </div>
 </div>
-<br />
+<br/>
 <div class="containerNapisy">
-  <a href="/user-{{user.id}}/products/"
-    ><div class="containernapis">Products</div></a
-  >
-  <a href="/user-{{user.id}}/wanted/"
-    ><div class="containernapis wdcontainernapis">Wanted</div></a
-  >
+    <a href="/user-{{user.id}}/products/"><div class="containernapis">Products</div></a>
+    <a href="/user-{{user.id}}/wanted/"><div class="containernapis wdcontainernapis">Wanted</div></a>
 </div>
 <form method="post" action="">
   {% csrf_token %}
