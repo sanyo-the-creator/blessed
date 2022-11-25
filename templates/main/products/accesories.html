@@ -1,0 +1,188 @@
+{% extends 'main/navbar.html' %} {% load static %} {% block content %}
+<head>
+  <link rel="stylesheet" href=" {% static '/css/products.css' %} " />
+</head>
+<div class="header">
+  <img src="/static/images/accesories.jpg" class="header-background">
+  <h1>Accesories</h1>
+</div>
+<form method="post" action="" class="filters">
+  {% csrf_token %}
+  <select name="order_by" id="order_by" onchange="this.form.submit()">
+    <option
+      class="hidden_option"
+      value="{{order}}"
+      name="{{order}}"
+      style="display: none"
+    > 
+      {{choice}}
+    </option>
+    <option value="-id" name="-id">Latest products</option>
+    <option value="id" name="id">Oldest products</option>
+    <option value="price" name="price">Lowest Price</option>
+    <option value="-price" name="price">Highest Price</option>
+  </select>
+  <select name="pricemax" id="pricemax" onchange="this.form.submit()">
+    <option
+      class="hidden_option"
+      value="{{price}}"
+      name="{{price}}"
+      style="display: none"
+    >
+      {{choicep}}
+    </option>
+    <option value="0" name="0">Price up to €</option>
+    <option value="100" name="100">up to 100€</option>
+    <option value="200" name="200">up to 200€</option>
+    <option value="500" name="500">up to 500€</option>
+    <option value="1000" name="1000">up to 1000€</option>
+    <option value="2000" name="2000">up to 2000€</option>
+    <option value="2001" name="2001">from 2000€</option>
+  </select>
+  <div style="display: none">
+    <input type="checkbox" id="sizecheck" name="sizecheck" {{sizecheck}} />
+    <input
+      class="checkbox"
+      type="checkbox"
+      id="conditioncheck"
+      name="conditioncheck"
+      {{conditioncheck}}
+    />
+
+    <input
+      class="checkbox"
+      type="checkbox"
+      id="countrycheck"
+      name="countrycheck"
+      {{countrycheck}}
+    />
+  </div>
+
+  <button type="button" class="size" onclick="Size()">
+    <h5>Size</h5>
+    <img
+      src=" {% static '/images/arrow.png' %}"
+      class="arrow"
+      id="Size_arrow"
+      style="transform: rotate({{size_arrow}}deg);"
+    />
+  </button>
+  <div id="size" class="size-filters" style="display: {{size_display}};">
+    {% for size in sizes %} {% if size in x %}
+    <label class="size-label"
+      ><input
+        class="checkbox"
+        type="checkbox"
+        name="size"
+        value="{{size}}"
+        onchange="this.form.submit()"
+        checked
+      />{{size}}</label
+    >
+    {% else %}
+    <label
+      ><input
+        class="checkbox"
+        type="checkbox"
+        name="size"
+        value="{{size}}"
+        onchange="this.form.submit()"
+      />{{size}}</label
+    >
+    {%endif%} {% endfor %}
+  </div>
+  <button type="button" class="condition" onclick="Condition()">
+    <h5>Condition</h5>
+    <img
+      src=" {% static '/images/arrow.png' %}"
+      class="arrow"
+      id="condition_arrow"
+      style="transform: rotate({{condition_arrow}}deg);"
+    />
+  </button>
+  <div id="condition" class="condition-filters" style="display: {{condition_display}};">
+    {% for condition in conditions %} {% if condition in y %}
+    <label class="condition-label"
+      ><input
+        class="checkbox"
+        type="checkbox"
+        name="condition"
+        value="{{condition}}"
+        onchange="this.form.submit()"
+        checked
+      />{{condition}}</label
+    >
+    {% else %}
+    <label
+      ><input
+        class="checkbox"
+        type="checkbox"
+        name="condition"
+        value="{{condition}}"
+        onchange="this.form.submit()"
+      />{{condition}}</label
+    >
+    {%endif%} {% endfor %}
+  </div>
+  <button type="button" class="country" onclick="Country()">
+    <h5>Country</h5>
+    <img
+      src=" {% static '/images/arrow.png' %}"
+      class="arrow"
+      id="country_arrow"
+      style="transform: rotate({{country_arrow}}deg);"
+    />
+  </button>
+  <div id="country" class="country-filters" style="display: {{country_display}};">
+    {% for country in eu_countries %} {% if country in z %}
+    <label class="country-label">
+        <input
+          class="checkbox"
+          type="checkbox"
+          name="country"
+          value="{{country}}"
+          onchange="this.form.submit()"
+          checked
+        />{{country}}</label
+    >
+    {% else %}
+    <label
+      ><input
+        class="checkbox"
+        type="checkbox"
+        name="country"
+        value="{{country}}"
+        onchange="this.form.submit()"
+      />{{country}}</label
+    >
+    {%endif%} {% endfor %}
+  </div>
+</form>
+{% if shoes.count == 0 %}
+<div class="nothing-match">
+  <h2>We are Sorry.</h2>
+  <p class="nothing">Nothing is Matching. Try to change filters so we can find shoes just for you!</p>
+</div>
+{% endif %}
+<div class="container">
+  <hr class="diff">
+  <ul class="products">
+    {% for product in pd %}
+    <li class="product">
+      <a href="/{{product.id}}/">
+        <img class="image" src="{{product.image.url}}" alt="image" />
+        <p>Name: {{product.name}}</p>
+        <!-- <p>Description: {{product.description}}</p> -->
+        <p>Size: {{product.size}}</p>
+        <p>Category: {{product.categories}}</p>
+        <p>Price: {{product.price}}$</p>
+        <!-- <p>id: {{product.id}}</p> -->
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+<script src="{% static '/js/filteraccesories.js' %}"></script>
+<!-- <script src="{% static '/js/reload.js' %}">
+    </script> -->
+{% endblock %}
