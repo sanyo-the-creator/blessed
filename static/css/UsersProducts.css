@@ -1,56 +1,226 @@
-body{
-    overflow-x: hidden;
-}
-.contact {
-    text-align: center;
-}
-.mailig{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-.containerNapisy {
-    display: flex;
-    flex-direction: row;
-    
-    width: 100%;
-}
-.containernapis {
-    position: relative;
-    width:50vw;
-    height: 100px;
+h2 {
     display: flex;
     justify-content: center;
-    align-items:center;
-    background-color: aliceblue;
+    font-size: 45px;
+    margin-top: 25px;
 }
-.pdcontainernapis {
-    background-color:blueviolet;
+
+h3 {
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
 }
-.image {
+ 
+.redirects {
+    margin: auto;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
     width: 40%;
-    
 }
+
+.redirects a {
+    text-decoration: none; 
+    color: black;
+    cursor: auto;
+}
+
+.redirects p {
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.container-napisy {
+    margin-top: 25px;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.container-napisy a {
+    padding-left: 15px;
+    color: black;
+    padding-right: 15px;
+    text-decoration: none;
+}
+
+.container-napisy a:hover {
+    color: blueviolet;
+}
+
+.filters-form {
+    margin-bottom: 50px;
+}
+
+.filters {
+    position: absolute;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    width: 50%;
+    height: 50px;
+    left: 20%;
+    transform: translateX(-20%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.size-filters, .condition-filters, .country-filters {
+    position: absolute;
+    line-height: 1.5;
+    top: 40px;
+    z-index: 25;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(247, 247, 247); 
+    /* box-shadow: 5px 5px 5px 5px rgb(226, 226, 226); */
+    box-shadow: 0 1px 3px 0 #e6ebf1; 
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.size-filters {
+    left: 40%;
+    transform: translateX(50%);
+    width: 75px;
+}
+
+.condition-filters {
+    left: 63%;
+    width: 100px;
+}
+
+.country-filters {
+    left: 80%;
+    width: 190px;
+}
+
+input {
+    accent-color: black;
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.size, .condition, .country {
+    border: none;
+    height: 35px;
+    font-size: 16px;
+    width: auto;
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    margin-left: 15px;
+    padding-right: 20px;
+}
+
+select {
+    height: 35px;
+    width: 120px;
+    outline: none;
+    border: none;
+}
+
+.arrow {
+    width: 12px;
+    rotate: 90deg;
+    margin-left: 15px;
+}
+
+.nothing-match {
+    margin-top: 15%;
+}
+
+h2 {
+    font-size: 52px;
+    display: flex;
+    justify-content: center;
+}
+
+.nothing {
+    margin-top: 2%;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+hr {
+    background-color: black;
+    margin: auto;
+    width: 80%;
+}
+
 .product {
-    
-    
-    display: flex;
-    justify-content: center;
-    
+    width: 50%;
+    height: 500px;
+    position: relative;
+    transform: translateX(50%);
+    margin-bottom: 100px;
+    border-bottom: 1px solid grey;
 }
-.container {
-    display: flex;
-    justify-content: center;
-    padding-left: 5%;
-    padding-right: 5%;
-   
-    
-}
+
 .products {
+    margin-top: 300px;
     display: grid;
-    
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.image {
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    height: 70%;
+    transition: all ease-in .1s;
+}
+
+.image:hover {
+    transform: scale(1.1);
+}
+
+li {
     list-style-type: none;
-   overflow-y: hidden;
-    overflow-x: auto;
+}
+
+.diff {
+    background: rgb(0, 0, 0);
+    width: 80%;
+    position: absolute;
+    top: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.description {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.description p {
+    border: 1px solid grey;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+.product a {
+    text-decoration: none;
+    color: black;
 }

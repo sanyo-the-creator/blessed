@@ -1,74 +1,59 @@
 {% extends 'main/navbar.html' %}{% load static%} {% block content%}
 <head>
   <link rel="stylesheet" href=" {% static '/css/userproducts.css' %} " />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta charset="UTF-8" />
-  <meta
-    name="description"
-    property="og:description"
-    content="Blessed is website for selling or buying hype shoes, clothes and accesories"
-  />
-  <meta property="og:title" content="My Products - Blessed" />
-  <title>My Products - Blessed</title>
-  <meta name="author" content="Jerguš Sňahničan, Alexander Poole" />
-  <meta
-    name="keywords"
-    content="Blessed, blessed, resell,market, hypebeast,shoes,clothes,accesories"
-  />
 </head>
 <body>
   <h2>My Products</h2>
   <a href="/add/">
-    <button>Add products</button>
+    <button class="add-product">Add products</button>
   </a>
 
   {% if user.products.count == 0 %}
-  <p>nemas vlastne produkty</p>
+  <p class="no-products">No products..</p>
+  <div class="pic">
+    <img src="/static/images/blessedimg.jpg" class="travolta">
+  </div>
 
   {% else %}
-  <form method="post" action="" id="form_id">
+  <form method="post" class="products" action="" id="form_id" >
     {% csrf_token %} {% for product in pd %}
 
-    <div class="product">
-      <a href="/{{product.id}}/">
+    <div class="product"> 
+      <a href="/{{product.id}}/"> 
         <img class="image" src="{{product.image.url}}" alt="image" />
       </a>
-      <p>Name: {{product.name}}</p>
-      <p>Id: {{product.id}}</p>
-      <p>Desciption: {{product.description}}</p>
-      <p>Size: {{product.size}}</p>
-      <p>Category: {{product.categories}}</p>
-      <p>Price: {{product.price}}$</p>
-      <p>condition: {{product.condition}}</p>
-      <p>color1: {{product.color1}}</p>
-      <p>color2: {{product.color2}}</p>
+      <div class="desc">
+        <p>Name: {{product.name}}</p>
+        <!-- <p>Id: {{product.id}}</p> -->
+        <!-- <p>Desciption: {{product.description}}</p> -->
+        <p>Size: {{product.size}}</p>
+        <!-- <p>Category: {{product.categories}}</p> -->
+        <p>Price: {{product.price}}$</p>
+        <p>condition: {{product.condition}}</p>
+        <!-- <p>color1: {{product.color1}}</p> -->
+        <!-- <p>color2: {{product.color2}}</p> -->
+      </div>
 
-      <button type="submit" value="{{product.id}}" name="delete">Remove</button>
-      <button><a href="/edit-{{product.id}}/">Edit</a></button>
+      <div class="buttons">
+        <button type="submit" value="{{product.id}}" class="delete" name="delete">Remove</button>
+        <a href="/edit-{{product.id}}/"><button class="edit">Edit</button></a>
+      </div>
+      
+      <p class="switch-info">Turn your product on or off:</p>
       {% if product.active == True%}
-
+      
       <label class="switch">
-        <input
-          type="checkbox"
-          onchange="form.submit()"
-          name="p{{product.id}}"
-          checked
-        />
-        <span class="slider round"></span>
+        <input type="checkbox" class="toggle" onchange="form.submit()" name="p{{product.id}}" checked />
       </label>
-
+    
       {% else %}
-
+      
       <label class="switch">
-        <input
-          type="checkbox"
-          onchange="form.submit()"
-          name="p{{product.id}}"
-        />
-        <span class="slider round"></span>
+        <input type="checkbox" class="toggle" onchange="form.submit()"   name="p{{product.id}}"/>
       </label>
-
-      {% endif %} {{product.active}}
+  
+  
+    {% endif %}
     </div>
     {% endfor %}
   </form>

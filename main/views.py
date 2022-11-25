@@ -193,7 +193,7 @@ def SearchResultsView(request):
     clothessizes=["XXS","XS","S","M","L","XL","XXL","3XL"]
     sizes=[]
     conditions=["New","9/10","8/10","7/10","6/10","5/10","4/10","3/10","2/10","1/10"]
-    eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
+    eu_countries = [ "Slovakia", "Czechia", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
     if request.GET.get("name"):
         name = request.GET.get("name")
@@ -321,7 +321,7 @@ def products(request ):
     clothessizes=["XXS","XS","S","M","L","XL","XXL","3XL"]
     sizes=[]
     conditions=["New","9/10","8/10","7/10","6/10","5/10","4/10","3/10","2/10","1/10"]
-    eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
+    eu_countries = [ "Slovakia", "Czechia", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
     if request.POST.get("sizecheck"):
         sizecheck="checked"
@@ -451,7 +451,7 @@ def addProducts(response):
     if response.user.is_authenticated == False:
         response = redirect('/login/')
         return response
-    eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
+    eu_countries = [ "Slovakia", "Czechia", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
     shoessize=["35","35,5","36","36,5","37","37,5","38","38,5","39","39,5","40","40,5","41","41,5","42","42,5","43","43,5","44","44,5","45","45,5","46","46,5","47"]
     clothessize=["XXS","XS","S","M","L","XL","XXL","3XL"]
@@ -488,7 +488,7 @@ def UsersProducts(request,id):
     clothessizes=["XXS","XS","S","M","L","XL","XXL","3XL"]
     sizes=[]
     conditions=["New","9/10","8/10","7/10","6/10","5/10","4/10","3/10","2/10","1/10"]
-    eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
+    eu_countries = [ "Slovakia", "Czechia", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
     if request.POST.get("order_by"):
 
@@ -606,7 +606,7 @@ def wanted(request, ):
     shoessizes=["35","35,5","36","36,5","37","37,5","38","38,5","39","39,5","40","40,5","41","41,5","42","42,5","43","43,5","44","44,5","45","45,5","46","46,5","47"]
     clothessizes=["XXS","XS","S","M","L","XL","XXL","3XL"]
     sizes=[]
-    eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
+    eu_countries = [ "Slovakia", "Czechia", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
     if request.POST.get("sizecheck"):
         sizecheck="checked"
@@ -728,7 +728,7 @@ def UsersWanted(request,id):
     shoessizes=["35","35,5","36","36,5","37","37,5","38","38,5","39","39,5","40","40,5","41","41,5","42","42,5","43","43,5","44","44,5","45","45,5","46","46,5","47"]
     clothessizes=["XXS","XS","S","M","L","XL","XXL","3XL"]
     sizes=[]
-    eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
+    eu_countries = [ "Slovakia", "Czechia", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
     if request.POST.get("order_by"):
 
@@ -797,7 +797,7 @@ def addWanted(response):
     if response.user.is_authenticated == False:
         response = redirect('/login/')
         return response
-    eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
+    eu_countries = [ "Slovakia", "Czechia", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
     shoessize=["35","35,5","36","36,5","37","37,5","38","38,5","39","39,5","40","40,5","41","41,5","42","42,5","43","43,5","44","44,5","45","45,5","46","46,5","47"]
     clothessize=["XXS","XS","S","M","L","XL","XXL","3XL"]
@@ -866,7 +866,7 @@ def shoes(request):
     pricex=""
     sizes=["35","35,5","36","36,5","37","37,5","38","38,5","39","39,5","40","40,5","41","41,5","42","42,5","43","43,5","44","44,5","45","45,5","46","46,5","47"]
     conditions=["New","9/10","8/10","7/10","6/10","5/10","4/10","3/10","2/10","1/10"]
-    eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
+    eu_countries = [ "Slovakia", "Czechia", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
     if request.POST.get("sizecheck"):
         sizecheck="checked"
@@ -939,7 +939,7 @@ def shoes(request):
             else:
                 shoes=shoes.filter(price__lte=pricex)
                 choicep="up to "+str(pricex)+"€"
-    paginator = Paginator(shoes, 30) 
+    paginator = Paginator(shoes, 1) 
     count=shoes.count()
     page_number = request.GET.get('page')
     shoes = paginator.get_page(page_number)
@@ -963,7 +963,7 @@ def clothes(request):
     pricex=""
     sizes=["XXS","XS","S","M","L","XL","XXL","3XL"]
     conditions=["New","9/10","8/10","7/10","6/10","5/10","4/10","3/10","2/10","1/10"]
-    eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
+    eu_countries = [ "Slovakia", "Czechia", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
     if request.POST.get("sizecheck"):
         sizecheck="checked"
@@ -1059,7 +1059,7 @@ def accesories(request):
     pricex=""
 
     conditions=["New","9/10","8/10","7/10","6/10","5/10","4/10","3/10","2/10","1/10"]
-    eu_countries = [ "Slovakia", "Czech Republic", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
+    eu_countries = [ "Slovakia", "Czechia", "Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary"
         , "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovenia", "Spain", "Sweden"]
     if request.POST.get("sizecheck"):
         sizecheck="checked"

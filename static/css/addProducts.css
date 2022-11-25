@@ -1,35 +1,36 @@
 * {
-    margin: 0;
     padding: 0;
-    font-family: "SuisseIntl-Medium",sans-serif;
+    margin: 0;
 }
-.StripeElement{
-    width: 500px;
-}
-body{
-    overflow-x: hidden;
-}
+
 #clothes {
     display: none;
 }
+
 #accesories {
     display: none;
 }
+
 #shoes {
     display: block;
 }
 
-body {
-    border: none;
+h1 {
+    font-size: 52px;
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-.center {
-    text-align: center;
+.inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(100px, 100px);
 }
 
 input, select { 
-    align-self: center;
     height: 35px;
+    padding-left: 5px;
 }
 
 input:not(.search-field), select, textarea, .import-file {
@@ -39,9 +40,25 @@ input:not(.search-field), select, textarea, .import-file {
 
 textarea {
     padding-bottom: 20px; 
+    padding-left: 5px;
+    padding-top: 5px;
     resize: none;
 }
 
+::-webkit-file-upload-button {
+    height: 35px;
+    width: 50%;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+::-webkit-file-upload-button:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+}
 
 .sugest {
     display: flex;
@@ -75,7 +92,6 @@ textarea {
 
 .submit {
     position: absolute;
-    
     height: 35px;
     left: 50%;
     transform: translateX(-50%);
@@ -83,6 +99,7 @@ textarea {
     background-color: black;
     color: white;
     cursor: pointer;
+    transition: 0.4s;
 }
 
 .submit:hover {
@@ -91,24 +108,49 @@ textarea {
     border: 1px solid black;
 }
 
-.import-file {
-    height: 35px;
-    cursor: pointer;
+.form-row {
+    display: flex;
+    justify-content: center;
+}
+
+.card-payment {
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: black;
+    font-family: sans-serif;
+}
+
+.StripeElement {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 40%;
+    background-color: white;
+    margin-bottom: 50px;
+}
+
+.StripeElement { 
+    box-sizing: border-box; 
+    height: 40px; 
+    padding: 10px 12px; 
+    border: 1px solid transparent; 
+    border-radius: 4px; 
+    background-color: white; 
+    box-shadow: 0 1px 3px 0 #e6ebf1; 
+    -webkit-transition: box-shadow 150ms ease; 
+    transition: box-shadow 150ms ease; 
 } 
 
-.adding {
-    width: 80%;
-}
+.StripeElement--focus { box-shadow: 0 1px 3px 0 #cfd7df; }
 
-.inputs {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: minmax(100px, 100px);
-    
-}
+.StripeElement--invalid { border-color: #fa755a; } 
+
+.StripeElement--webkit-autofill { background-color: #fefde5 !important; } .hidden { display: none; }
 
 .row{
-    margin-top: 15%;
+    margin-top: 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -122,7 +164,8 @@ textarea {
 }
 
 .kolonka-1 h2{
-    font-size: 44px;
+    font-size: 54px;
+    display: flex;
 }
 
 .kolonka-1 h3 {
@@ -145,26 +188,13 @@ textarea {
     left: -30px;
 }
 
-.buttons {
-    display: flex;
-    width: 100%;
-    margin-top: 25px;
-}
-
 .add-to-cart {
     width: 30%;
-        border: 0;
-        height: 35px;
-        color:#fff;
-        cursor: pointer;
-        
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    color:#fff;
 }
-
-/* .add-to-cart:hover{
-    width: 160px;
-    display: flex;
-    align-items: center;
-} */
 
 .kolonka-2{
     position: relative;
@@ -219,13 +249,6 @@ textarea {
     font-size: 20px;
 }
 
-.small-box{
-    content: "";
-    width: 10px;
-    height: 100%;
-    position: absolute;
-}
-
 .kolonka-2-1{
     display: flex;
     align-items: center;
@@ -245,24 +268,6 @@ textarea {
 .small-box,
 .small-box-2 {
     background: linear-gradient(#FFFFFF, #000000 );
-}
-
-::-webkit-file-upload-button {
-    height: 35px;
-    width: 50%;
-    color: white;
-    background-color: black;
-    cursor: pointer;
-}
-
-::-webkit-file-upload-button:hover {
-    color: black;
-    background-color: white;
-    border: 1px solid black;
-}
-
-::-webkit-scrollbar {
-    display: none;
 }
 
 .description-1,
@@ -318,6 +323,10 @@ hr {
 
     .row {
         display: none;
+    }
+
+    .card-payment {
+        margin-top: 805;
     }
 
     ::-webkit-file-upload-button {

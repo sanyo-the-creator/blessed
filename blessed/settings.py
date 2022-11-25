@@ -37,16 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "crispy_forms",
     'main.apps.MainConfig',
     'register.apps.RegisterConfig',
     'django_mysql',
-    "django.contrib.sites",
-    "django.contrib.sitemaps",
-    'django_cleanup.apps.CleanupConfig',
-     
     
 ]
-SITE_ID=2
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -76,24 +73,18 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'blessed.wsgi.application'
-
+STRIPE_SECRET_KEY="sk_test_51M6dQHLUoQwS73Adxh3Dat5mqvFBTo2V33xOyuHTvWR3MIEqBGNB8DSIn5OzOfIRdJoMpW3ytN3ai6Qhnsx89EH000z61ztooP" 
+STRIPE_PUBLIC_KEY="pk_test_51M6dQHLUoQwS73AdpvDRcFzQEhEjrZNLv6nEKvMINOuQeQBodB1w8IqyDPNcbVlm4IwkdA0dh7BPtGs2t0tA1Mi300R9aNf7kJ"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blesses_db',
-        'PORT':'5000',
-        'USER' : 'Jergus Snahnican',
-        'PASSWORD' : '2ie3-.9L9FwNX5j',
-        
-        'HOST' : 'localhost',
+DATABASES = {  
+    'default': {  
+        'ENGINE': 'django.db.backends.sqlite3',  
+        'NAME': BASE_DIR / 'db.sqlite3',  
     }
-}
-
-
+}    
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -123,35 +114,49 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-#mail sending
-# drsooetfjhjnhfns
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'blessedstore.sk@gmail.com'
-EMAIL_HOST_PASSWORD = 'drsooetfjhjnhfns'
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = '/'
 
 
 
 
+#mail sending 
+# drsooetfjhjnhfns 
+ 
+EMAIL_HOST = 'smtp.gmail.com' 
+EMAIL_USE_TLS = True 
+EMAIL_PORT = 587 
+EMAIL_HOST_USER = 'blessedstore.sk@gmail.com' 
+EMAIL_HOST_PASSWORD = 'drsooetfjhjnhfns' 
+# Static files (CSS, JavaScript, Images) 
+# https://docs.djangoproject.com/en/4.0/howto/static-files/ 
+ 
+LOGIN_REDIRECT_URL = "/" 
+LOGOUT_REDIRECT_URL = "/" 
+ 
+ 
+ 
+ 
+ 
 
-STATIC_URL = 'static/static/static/static/static/static/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
-MEDIA_URL = 'static/images/'
+STATIC_URL = 'static/static/static/'
+STATICFILES_DIRS = (
+   os.path.join(BASE_DIR, 'static'),
+)
 
-MEDIA_URL = 'images/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')  
+MEDIA_URL = 'static/static/static/static/images/' 
+if DEBUG: 
+    MEDIA_URL = 'static/images/' 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images') 
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
-STRIPE_SECRET_KEY="sk_test_51M6dQHLUoQwS73Adxh3Dat5mqvFBTo2V33xOyuHTvWR3MIEqBGNB8DSIn5OzOfIRdJoMpW3ytN3ai6Qhnsx89EH000z61ztooP"
-STRIPE_PUBLIC_KEY="pk_test_51M6dQHLUoQwS73AdpvDRcFzQEhEjrZNLv6nEKvMINOuQeQBodB1w8IqyDPNcbVlm4IwkdA0dh7BPtGs2t0tA1Mi300R9aNf7kJ"
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-
+ 
+# Default primary key field type 
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field 
+ 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

@@ -103,8 +103,8 @@ const stripe = Stripe(
   const style = {
     base: {
       // Add your base input styles here. For example:
-      fontSize: "16px",
-      color: "#32325d",
+      fontSize: "20px",
+      color: "black",
     },
   };
 

@@ -8,26 +8,17 @@ from main.models import Products
 def register(response):
     display="none"
     if response.method == "POST":
-        doc=response.POST.copy()
-        doc['email']=response.POST.get('username')
-        print(doc)
-        form=RegisterForm(doc)
+        form=RegisterForm(response.POST)
         if form.is_valid():
-            print("valid")
-            
             
             form.save()
             
             
         else:
-            print("invalid")
-            
-            print(response.POST)
-            
             display="block"
             form=RegisterForm()
             
-           
+            return render(response, "register/register.html", {"form":form})
     else:
         form=RegisterForm()
     return render(response, "register/register.html", {"form":form,"display":display})
