@@ -10,7 +10,7 @@
   .small-box ,
   .condition ,
   .price ,
-  hr{
+  #profile-btn {
     background: linear-gradient({{pd.color1}}, {{pd.color2}});
   }
 
@@ -32,114 +32,80 @@
 
 </style>
 
+<div class="view">
+  <img class="shoe-view" src="{{pd.image.url}}" alt="image" />
+  <img src="/static/images/cancel.png" onclick="cancel()" class="cancel-view">
+</div>
+
 <div class="row">
   <div class="kolonka-1">
     <div class="small-box" id="gradient3"></div>
     <div>
       <h2>{{pd.name}}<h1>{{pd.size}}</h1></h2>
-      <a href="/user-{{pd.user.id}}/products/"> 
+      <h4>{{pd.price}} €</h4>
+      
         <button
           class="add-to-cart"
           type="submit"
-          id="contact-btn"
+       
           value="Contact"
           name="Contact"
         >
-          View Profile
+         Condition: {{pd.condition}}
         </button>
-      </a>
+      
     </div>
   </div>
   <div class="kolonka-2">
-    <img class="shoe" src="{{pd.image.url}}" alt="image" />
+    <img class="shoe" src="{{pd.image.url}}" onclick="imageView()" alt="image" />
     <div class="bg-box"></div>
   </div>
 </div>
-  
-<div class="bottom-content">
-  <div class="content-first">
-    <h5 class="desc-first">Description</h5>
-    <p class="desc-content-first">{{ pd.description}}</p>
-  </div>
-  <div class="bottom-info">
-    <h6>Info</h6>
-    <div class="visuals-first">
-      <p class="condition-first">Condition:{{pd.condition}}</p>
-      <p class="price-first">Price:{{pd.price}} €</p>
-      <p class="question-country">Country:{{pd.country}}</p>
+
+<div class="center">
+  <div class="description-1" style="text-align: center">
+    <hr class="for-sale">
+    <h4>For Sale</h4>
+    <div class="info">
+      <p class="question">Country:<p>
+      <p class="country">{{pd.country}}</p>
     </div>
-    <div class="contact-first">
-      <div class="links-first">
-          <a class="instagram-first" href="https://www.instagram.com/{{ig}}/">
-            <div class="instagram-button">
-              <p class="instagram-asking">Instagram:</p>
-              <p class="ig-first"> @{{ig}}</p>
-            </div>
-          </a>
-        <div class="mail-first">
-          <div class="mail-button">
-            <p class="mail-asking">Mail:</p>
-            <p class="mail">{{pd.user.username}}</p>
-          </div>
-        </div>
+    <!-- <div class="info">
+      <p class="question">Condition:<p>
+      <p class="country">{{pd.condition}}</p>
+    </div> -->
+    <hr class="about-product">
+    <div class="content">
+      <h5 class="desc">Description</h5>
+      <div class="center">
+        <p class="desc-content">{{ pd.description}}</p>
       </div>
     </div>
-  </div>
-</div>
-
-
-
-
-<div class="row-1">
-  <div class="kolonka-2-1">
-    <img class="shoe-1" src="{{pd.image.url}}" alt="image" />
-    <!-- <div class="bg-box"></div> -->
-  </div>
-</div>
-<div class="name">
-  <div class="small-box" id="gradient3"></div>
-  <h1>{{pd.name}}<h2 style=>Size:{{pd.size}}</h2></h1>
-  <div class="visuals">
-    <p class="condition">Condition:{{pd.condition}}</p>
-    <p class="price">Price:{{pd.price}} €</p>
-  </div>
-</div>
-<hr class="for-sale">
-<div class="description-1" style="text-align: center">
-  <h4>For Sale</h4>
-  <div class="info">
-    <p class="question">Country:<p>
-    <p class="country">{{pd.country}}</p>
-  </div>
-  <hr class="about-product">
-  <div class="content">
-    <h5 class="desc">Description</h5>
-    <p class="desc-content">{{ pd.description}}</p>
-  </div>
-  <hr class="contact-line">
-  <div class="contact">
-    <h6>Contact</h6>
-    <div class="links">
+    <hr class="contact-line">
+    <div class="contact">
+      <h6>Contact</h6>
+      <div class="links">
+        <div class="mail">
+          <p>Mail:</p>
+          <p>{{pd.user.username}}</p>
+        </div>  
         <a class="instagram" href="https://www.instagram.com/{{ig}}/">
           <p>Instagram:</p>
           <p class="ig"> @{{ig}}</p>
         </a>
-      <div class="mail">
-        <p>Mail:</p>
-        <p>{{pd.user.username}}</p>
       </div>
     </div>
   </div>
 </div>
-
 <div class="buttons-1">
   <a href="/user-{{pd.user.id}}/products/"> 
+  
   <button
-    class="add-to-cart"
     type="submit"
-    id="contact-btn"
-    value="Contact"
-    name="Contact"
+    id="profile-btn"
+    class="view-profile"
+    value="profile"
+    name="profile"
   >
     View Profile
   </button></a>

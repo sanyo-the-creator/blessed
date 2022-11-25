@@ -6,7 +6,7 @@
 
 <body>
   <div class="header">
-    <img src="/static/images/shoes-background.png" class="header-background">
+    <img src="/static/images/shoes-header3.jpg" class="header-background">
     <h1>Shoes</h1>
   </div>
   <form method="post" action="" class="filters">
@@ -17,7 +17,7 @@
         value="{{order}}"
         name="{{order}}"
         style="display: none"
-      >
+      > 
         {{choice}}
       </option>
       <option value="-id" name="-id">Latest products</option>
@@ -72,7 +72,7 @@
     </button>
     <div id="size" class="size-filters" style="display: {{size_display}};">
       {% for size in sizes %} {% if size in x %}
-      <label
+      <label class="size-label"
         ><input
           class="checkbox"
           type="checkbox"
@@ -105,7 +105,7 @@
     </button>
     <div id="condition" class="condition-filters" style="display: {{condition_display}};">
       {% for condition in conditions %} {% if condition in y %}
-      <label
+      <label class="condition-label"
         ><input
           class="checkbox"
           type="checkbox"
@@ -138,7 +138,7 @@
     </button>
     <div id="country" class="country-filters" style="display: {{country_display}};">
       {% for country in eu_countries %} {% if country in z %}
-      <label>
+      <label class="country-label">
           <input
             class="checkbox"
             type="checkbox"
@@ -168,8 +168,9 @@
   </div>
   {% endif %}
   <div class="container">
+    <hr class="diff">
     <ul class="products">
-      {% for product in shoes %}
+      {% for product in pd %}
       <li class="product">
         <a href="/{{product.id}}/">
           <img class="image" src="{{product.image.url}}" alt="image" />
@@ -177,13 +178,56 @@
             <p>Name: {{product.name}}</p>
             <!-- <p>Description: {{product.description}}</p> -->
             <p>Size: {{product.size}}</p>
-            <p>Category: {{product.categories}}</p>
+            <!-- <p>Category: {{product.categories}}</p> -->
+            <p>Condition: {{product.condition}}</p>
             <p>Price: {{product.price}}$</p>
             <!-- <p>id: {{product.id}}</p> -->
           </div>
         </a>
       </li>
       {% endfor %}
+      {% if pd.paginator.num_pages > 1%}
+<div class="pagination">
+  {% if pd.number > 1 %}
+  <a href="?page={{ pd.previous_page_number }}"
+    ><button>&laquo;</button></a
+  >
+  {% else%}
+  <a href=""><button>&laquo;</button></a>
+  {% endif %} {% if pd.has_previous %}
+  <a href="?page=1"><button>1</button></a>
+  {% endif %} {% if previous2 > 1 and pd.number == pd.paginator.num_pages%}
+  <a href="?page={{ previous2 }}"><button>{{ previous2 }}</button></a>
+  {% endif %} {% if pd.number > 2 %}
+  <a href="?page={{ pd.previous_page_number }}"
+    ><button>{{ pd.previous_page_number }}</button></a
+  >
+  {% endif %}
+
+  <span class="current">
+    <button>{{ pd.number }}</button>
+  </span>
+
+  {% if pd.has_next %} {% if pd.next_page_number != pd.paginator.num_pages%}
+  <a href="?page={{ pd.next_page_number }}"
+    ><button>{{pd.next_page_number}}</button></a
+  >
+  {%endif%} {% if next2 < pd.paginator.num_pages and pd.number == 1%}
+  <a href="?page={{ next2 }}"><button>{{next2}}</button></a>
+  {%endif%}
+  <!-- <button>...</button> -->
+  <a href="?page={{ pd.paginator.num_pages }}"
+    ><button>{{ pd.paginator.num_pages }}</button></a
+  >
+  {% endif %} {% if pd.number != pd.paginator.num_pages%}
+  <a href="?page={{ pd.next_page_number }}"
+    ><button>&raquo;</button></a
+  >
+  {%else%}
+  <a href=""><button>&raquo;</button></a>
+  {%endif%}
+</div>
+{%endif%}
     </ul>
   </div>
 </body>
