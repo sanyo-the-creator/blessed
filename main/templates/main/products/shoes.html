@@ -186,7 +186,10 @@
         </a>
       </li>
       {% endfor %}
-      {% if pd.paginator.num_pages > 1%}
+    </ul>
+  </div>
+</body>
+{% if pd.paginator.num_pages > 1%}
 <div class="pagination">
   {% if pd.number > 1 %}
   <a href="?page={{ pd.previous_page_number }}"
@@ -228,9 +231,6 @@
   {%endif%}
 </div>
 {%endif%}
-    </ul>
-  </div>
-</body>
 <script src="{% static '/js/filtercategories.js' %}"></script>
 <!-- <script src="{% static '/js/reload.js' %}">
     </script> -->

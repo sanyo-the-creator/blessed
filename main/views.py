@@ -939,7 +939,7 @@ def shoes(request):
             else:
                 shoes=shoes.filter(price__lte=pricex)
                 choicep="up to "+str(pricex)+"€"
-    paginator = Paginator(shoes, 1) 
+    paginator = Paginator(shoes, 5) 
     count=shoes.count()
     page_number = request.GET.get('page')
     shoes = paginator.get_page(page_number)
