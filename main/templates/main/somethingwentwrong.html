@@ -1,0 +1,18 @@
+{% block content %} {% load static %}
+<head>
+    <link rel="stylesheet" href=" {% static '/css/somethingwentwrong.css' %} " />
+</head>
+
+<div class=succes>
+    <div class="succes-body">
+      <img src="/static/images/error.png" class="succes-img">
+      <h1>We are sorry!</h1>
+      <p>Something went wrong. Try to return to:</p>
+      <ul class="buttons">
+        <li><a href=""><button>Home</button></a></li>
+        <li><a href=""><button>Sell</button></a></li>
+        <li><a href=""><button>Login</button></a></li>
+    </ul>
+    </div>
+  </div>
+{% endblock %}
