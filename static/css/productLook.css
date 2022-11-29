@@ -2,6 +2,8 @@
     font-family: sans-serif;
 }
 
+/* product */
+
 .row{
     display: flex;
     justify-content: space-between;
@@ -23,6 +25,8 @@ a {
     text-decoration: none;
     color: black;
 }
+
+/* left side */
 
 .kolonka-1{
     flex-basis: 40%;
@@ -55,6 +59,8 @@ a {
     height: 35px;
     color:#fff;
 }
+
+/* right side */
 
 .kolonka-2{
     position: relative;

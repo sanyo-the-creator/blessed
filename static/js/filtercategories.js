@@ -118,8 +118,16 @@ function Country()  {
     }
 }
 
-function filtersMobile() {
-    document.querySelector('.filters').style.left = '50%';
-    document.querySelector('.filters').style.top = '50%';
-    document.querySelector('.filters').style.transform = 'translate(-50%, -50%)';
+// function filtersMobile() {
+//     document.querySelector('.filters').style.left = '50%';
+//     document.querySelector('.filters').style.top = '50%';
+//     document.querySelector('.filters').style.transform = 'translate(-50%, -50%)';
+//     document.querySelector('.selects').style.display = 'none';
+// }
+
+function close () {
+    document.querySelector('.size-filters').style.display = 'none';
+    document.querySelector('.condition-filters').style.display = 'none';
+    document.querySelector('.country-filters').style.display = 'none';
+    document.querySelector('.selects').style.display = 'none';
 }

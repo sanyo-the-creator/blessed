@@ -15,22 +15,22 @@
     <img src="/static/images/blessedimg.jpg" class="travolta">
   </div>
 
-  {% else %}
+  {% else %} 
   <form method="post" class="products" action="" id="form_id" >
     {% csrf_token %} {% for product in pd %}
 
     <div class="product"> 
-      <p class="N">{{product.name}}</p> 
       <a href="/{{product.id}}/"> 
         <img class="image" src="{{product.image.url}}" alt="image" />
       </a>
       <div class="desc">
         <!-- <p>Id: {{product.id}}</p> -->
         <!-- <p>Desciption: {{product.description}}</p> -->
-        <p>Size: {{product.size}}</p>
+        <p class="S">Size: {{product.size}}</p>
+        <p class="N">{{product.name}}</p> 
         <!-- <p>Category: {{product.categories}}</p> -->
-        <p>Price: {{product.price}}$</p>
-        <p>condition: {{product.condition}}</p>
+        <p class="P">Price: {{product.price}}$</p>
+        <p class="C">condition: {{product.condition}}</p>
         <!-- <p>color1: {{product.color1}}</p> -->
         <!-- <p>color2: {{product.color2}}</p> -->
       </div>

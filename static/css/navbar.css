@@ -156,6 +156,8 @@
         display: none;
     }
 
+    /* hamburger */
+
     .hamburger {
         margin-left: 15px;
         position: absolute;
@@ -220,6 +222,8 @@
         margin-bottom: 50%;
         font-size: 25px;
     }
+
+    /* search */
 
     .m-search {
         display: flex;
