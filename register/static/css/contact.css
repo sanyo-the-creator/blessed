@@ -1,0 +1,70 @@
+.only-contact {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+h1 {
+    font-size: 52px;
+    margin-top: 75px;
+}
+
+.contact {
+    flex-basis: 40%;
+}
+
+.contacts {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.contacts img {
+    height: 50px;
+    margin: 10px;
+}
+
+.center-send {
+    flex-basis: 20%;
+    display: flex;
+    justify-content: center;
+
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.input-name , .input-mail, .submit{
+    width: 350px;
+    height: 35px;
+    margin-bottom: 25px;
+    padding-left: 5px;
+}
+
+.submit {
+    background-color: black;
+    margin-top: 40px;
+    color: white;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+textarea {
+    width: 350px;
+}
+
+.text {
+    margin-top: 50px;
+}
+
+.submit:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
