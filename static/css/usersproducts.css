@@ -62,24 +62,48 @@ h3 {
 }
 
 .filters {
-    position: absolute;
+    position: absolute; 
     margin-top: 50px;
     margin-bottom: 100px;
-    width: 50%;
+    width: 80%;
+    z-index: 10;
     height: 50px;
-    left: 20%;
-    z-index: 100;
-    transform: translateX(-20%);
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.parameters {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+}
+
+select {
+    height: 35px;
+    width: 140px;
+    outline: none;
+    border: none;
+    font-weight: bold;
+}
+
+.selects {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.option {
+    font-size: 16px;
+    margin-top: 10px;
 }
 
 .size-filters, .condition-filters, .country-filters {
     position: absolute;
     line-height: 1.5;
     top: 40px;
-    z-index: 25;
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(247, 247, 247); 
     /* box-shadow: 5px 5px 5px 5px rgb(226, 226, 226); */
@@ -90,18 +114,17 @@ h3 {
 }
 
 .size-filters {
-    left: 40%;
-    transform: translateX(50%);
+    left: 42%;
     width: 75px;
 }
 
 .condition-filters {
-    left: 63%;
+    left: 60%;
     width: 100px;
 }
 
 .country-filters {
-    left: 80%;
+    left: 75%;
     width: 190px;
 }
 
@@ -117,7 +140,6 @@ label {
 }
 
 .size, .condition, .country {
-    border: none;
     height: 35px;
     font-size: 16px;
     width: auto;
@@ -125,13 +147,7 @@ label {
     align-items: center;
     background-color: rgb(255, 255, 255);
     margin-left: 15px;
-    padding-right: 20px;
-}
-
-select {
-    height: 35px;
-    width: 120px;
-    outline: none;
+    border-radius: 10px;
     border: none;
 }
 
@@ -153,9 +169,14 @@ select {
 }
 
 hr {
-    background-color: black;
     margin: auto;
     width: 80%;
+    width: 80%;
+    position: absolute;
+    top: 475px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
 }
 
 .product {
@@ -190,14 +211,6 @@ li {
     list-style-type: none;
 }
 
-.diff {
-    width: 80%;
-    position: absolute;
-    top: 425px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -1;
-}
 
 .description {
     display: flex;
@@ -223,6 +236,10 @@ li {
     color: black;
 }
 
+.mobile-filters, .filters-close, .order-by {
+    display: none;
+}
+
 @media (max-width: 992px) {
     h2 {
         font-size: 45px;
@@ -236,10 +253,6 @@ li {
         border: transparent;
     }
 
-    .filters {
-        display: none;
-    }
-
     .redirects {
         display: grid;
         grid-template-columns: repeat(1 , 1fr);
@@ -251,7 +264,7 @@ li {
     }
 
     .products {
-        margin-top: 150px;
+        margin-top: 200px;
     }
 
     .product {
@@ -268,5 +281,73 @@ li {
     .description {
         margin-top: 15px;
         margin-bottom: 0;
+    }
+
+    hr {
+        top: 600px;
+    }
+
+    .arrow{
+        display: none;
+    }
+
+    .selects {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-row-gap: 15px;
+    }
+
+    .filters {
+        margin-top: 75px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 25px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .parameters {
+        width: 50%;
+        display: grid;
+        grid-template-columns: repeat(1 , 1fr);
+        grid-gap: 10px;
+    }
+
+    select ,.size , .condition , .country {
+        margin: 0;
+        padding: 0;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        font-weight: bold;
+        background-color: black;
+        color: white;
+    }
+
+    select {
+        padding-left: 5px;
+    }
+
+    .size-filters, .condition-filters, .country-filters {
+        z-index: 100;
+        background-color: black;
+        border-radius: 25px;
+        line-height: 1.7s;
+        color: white;
+        width: 100%;
+        left: 50%;
+        top: 475px;
+        margin-bottom: 25px ;
+        transform: translate(-50%, -50%);
+    }
+
+    .condition-filters {
+        top: 275px;
+    }
+
+    .size-filters {
+        top: 450px
     }
 }
